@@ -41,7 +41,7 @@ function Result({ values }: ResultProps) {
   const energyCost = energyConsumed * values.electricityCostPerKwh
   const totalCost = depreciationCost + filamentCostWithFailure + energyCost
   const salePrice = totalCost * (1 + values.profitMarginPercent / 100)
-  //   const profitValue = salePrice - totalCost
+  const profitValue = salePrice - totalCost
   //   const marginValue = (profitValue / salePrice) * 100
 
   return (
@@ -128,7 +128,16 @@ function Result({ values }: ResultProps) {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <p>Card Content</p>
+          <Table>
+            <TableBody>
+              <TableRow>
+                <TableCell className="font-medium">Lucro em valor</TableCell>
+                <TableCell className="text-right">
+                  {renderValue(profitValue)}
+                </TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
         </CardContent>
       </Card>
     </>
