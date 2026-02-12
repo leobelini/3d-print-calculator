@@ -41,7 +41,7 @@ const InputTimeDuration = forwardRef<HTMLInputElement, InputTimeDurationProps>(
     }
 
     const handleInputChange = (
-      currentValue: string,
+      _currentValue: string,
       onChange: (value: string) => void,
     ) => {
       return (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -68,7 +68,7 @@ const InputTimeDuration = forwardRef<HTMLInputElement, InputTimeDurationProps>(
       }
     }
 
-    const handleKeyDown = (currentValue: string) => {
+    const handleKeyDown = (_currentValue: string) => {
       return (e: React.KeyboardEvent<HTMLInputElement>) => {
         // Permite navegação e comandos de edição
         const allowedKeys = [
