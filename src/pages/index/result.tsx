@@ -190,7 +190,7 @@ function Result({ values }: ResultProps) {
                   }
                 />
               </div>
-              <p className="text-2xl font-bold">{renderValue(totalCost)}</p>
+              <div className="text-2xl font-bold">{renderValue(totalCost)}</div>
             </div>
             <div className="flex align-center justify-between gap-2 items-center">
               <div className="flex items-center gap-1">
@@ -207,9 +207,9 @@ function Result({ values }: ResultProps) {
                   }
                 />
               </div>
-              <p className="text-2xl font-bold text-green-600">
+              <div className="text-2xl font-bold text-green-600">
                 {renderValue(profitValue)}
-              </p>
+              </div>
             </div>
             <div className="flex align-center justify-between gap-2 items-center">
               <div className="flex items-center gap-1">
@@ -228,9 +228,9 @@ function Result({ values }: ResultProps) {
                   }
                 />
               </div>
-              <p className="text-2xl font-bold text-green-600">
+              <div className="text-2xl font-bold text-green-600">
                 {renderValue(salePrice)}
-              </p>
+              </div>
             </div>
           </div>
         </CardContent>

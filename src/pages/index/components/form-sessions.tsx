@@ -137,7 +137,7 @@ const PrintForm = withForm({
         <form.AppField
           name="filamentUsedGrams"
           children={(f) => (
-            <f.InputMask
+            <f.InputGroupText
               label={
                 <>
                   Quantidade de filamento usado
