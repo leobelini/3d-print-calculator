@@ -11,6 +11,14 @@ import {
 } from '@/components/ui/card'
 import { useAppForm } from '@/hooks/use-app-form'
 import { InputGroupAddon } from '@/components/ui/input-group'
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableFooter,
+  TableRow,
+} from '@/components/ui/table'
 
 export const Route = createFileRoute('/')({
   component: App,
@@ -41,10 +49,6 @@ function App() {
       failureRatePercent: 0,
       profitMarginPercent: 0,
     },
-    onSubmit: (e) => {
-      const values = e.value as FormType
-      console.log('Form submitted with values:', values)
-    },
   })
 
   return (
@@ -53,7 +57,6 @@ function App() {
         className="flex flex-col gap-4 flex-1"
         onSubmit={(e) => {
           e.preventDefault()
-          form.handleSubmit()
         }}
       >
         <Card>
@@ -245,7 +248,55 @@ function App() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <p>Card Content</p>
+            <Table>
+              <TableCaption>Cálculo de Resultados</TableCaption>
+              <TableBody>
+                <TableRow>
+                  <TableCell className="font-medium">
+                    Depreciação por hora
+                  </TableCell>
+                  <TableCell className="text-right">R$/h 0,00</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-medium">
+                    Custo de depreciação na peça
+                  </TableCell>
+                  <TableCell className="text-right">R$ 0,00</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-medium">
+                    Custo do filamento
+                  </TableCell>
+                  <TableCell className="text-right">R$ 0,00</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-medium">
+                    Custo de perda de filamento
+                  </TableCell>
+                  <TableCell className="text-right">R$ 0,00</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-medium">
+                    Custo de energia
+                  </TableCell>
+                  <TableCell className="text-right">R$ 0,00</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-medium">Custos extras</TableCell>
+                  <TableCell className="text-right">R$ 0,00</TableCell>
+                </TableRow>
+              </TableBody>
+              <TableFooter className="bg-muted">
+                <TableRow>
+                  <TableCell>Custo total</TableCell>
+                  <TableCell className="text-right">R$ 0,00</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Preço de venda sugerido</TableCell>
+                  <TableCell className="text-right">R$ 0,00</TableCell>
+                </TableRow>
+              </TableFooter>
+            </Table>
           </CardContent>
         </Card>
 
