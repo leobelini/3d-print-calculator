@@ -15,14 +15,33 @@ export const Route = createFileRoute('/')({
   component: App,
 })
 
-interface FormType {}
+interface FormType {
+  printerPrice: number // Preço da impressora R$ (Printer Price)
+  printerLifetimeHours: number // Vida útil da impressora em horas (Printer Lifetime Hours)
+  filamentCostPerKg: number // Custo do filamento por kg R$ (Filament Cost per Kg)
+  filamentUsedGrams: number // Quantidade de filamento usado em gramas (Filament Used Grams)
+  electricityCostPerKwh: number // Custo da eletricidade por kWh R$ (Electricity Cost per kWh)
+  printerPowerConsumption: number // Consumo de energia da impressora em watts (Printer Power Consumption)
+  printDurationHours: number // Duração da impressão em horas (Print Duration Hours)
+  failureRatePercent: number // Taxa de falha em porcentagem (Failure Rate Percentage)
+  profitMarginPercent: number // Margem de lucro em porcentagem (Profit Margin Percentage)
+}
 
 function App() {
   const form = useAppForm({
     defaultValues: {
-      name: '',
+      printerPrice: 0,
+      printerLifetimeHours: 0,
+      filamentCostPerKg: 0,
+      filamentUsedGrams: 0,
+      electricityCostPerKwh: 0,
+      printerPowerConsumption: 0,
+      printDurationHours: 0,
+      failureRatePercent: 0,
+      profitMarginPercent: 0,
     },
-    onSubmit: (values: FormType) => {
+    onSubmit: (e) => {
+      const values = e.value as FormType
       console.log('Form submitted with values:', values)
     },
   })
@@ -44,8 +63,14 @@ function App() {
           </CardHeader>
           <CardContent>
             <form.AppField
-              name="name"
-              children={(f) => <f.InputText label="Nome" />}
+              name="printerPrice"
+              children={(f) => <f.InputText label="Preço da Impressora" />}
+            />
+            <form.AppField
+              name="printerLifetimeHours"
+              children={(f) => (
+                <f.InputText label="Vida útil da Impressora (horas)" />
+              )}
             />
           </CardContent>
         </Card>
@@ -54,10 +79,14 @@ function App() {
           <CardHeader>
             <CardTitle>Filamento</CardTitle>
             <CardDescription>Informe dados sobre o filamento.</CardDescription>
-            {/* <CardAction>Card Action</CardAction> */}
           </CardHeader>
           <CardContent>
-            <p>Card Content</p>
+            <form.AppField
+              name="filamentCostPerKg"
+              children={(f) => (
+                <f.InputText label="Custo do Filamento por Kg" />
+              )}
+            />
           </CardContent>
         </Card>
 
@@ -67,10 +96,20 @@ function App() {
             <CardDescription>
               Informe dados sobre o consumo de energia.
             </CardDescription>
-            {/* <CardAction>Card Action</CardAction> */}
           </CardHeader>
           <CardContent>
-            <p>Card Content</p>
+            <form.AppField
+              name="electricityCostPerKwh"
+              children={(f) => (
+                <f.InputText label="Custo da Eletricidade por kWh" />
+              )}
+            />
+            <form.AppField
+              name="printerPowerConsumption"
+              children={(f) => (
+                <f.InputText label="Consumo de Energia da Impressora (Watts)" />
+              )}
+            />
           </CardContent>
         </Card>
 
@@ -78,10 +117,24 @@ function App() {
           <CardHeader>
             <CardTitle>Impressão</CardTitle>
             <CardDescription>Informe dados sobre a impressão.</CardDescription>
-            {/* <CardAction>Card Action</CardAction> */}
           </CardHeader>
           <CardContent>
-            <p>Card Content</p>
+            <form.AppField
+              name="filamentUsedGrams"
+              children={(f) => (
+                <f.InputText label="Quantidade de Filamento Usado (Gramas)" />
+              )}
+            />
+            <form.AppField
+              name="printDurationHours"
+              children={(f) => (
+                <f.InputText label="Duração da Impressão (horas)" />
+              )}
+            />
+            <form.AppField
+              name="failureRatePercent"
+              children={(f) => <f.InputText label="Taxa de Falha (%)" />}
+            />
           </CardContent>
         </Card>
 
@@ -102,10 +155,12 @@ function App() {
           <CardHeader>
             <CardTitle>Lucro</CardTitle>
             <CardDescription>Informe dados sobre o lucro.</CardDescription>
-            {/* <CardAction>Card Action</CardAction> */}
           </CardHeader>
           <CardContent>
-            <p>Card Content</p>
+            <form.AppField
+              name="profitMarginPercent"
+              children={(f) => <f.InputText label="Margem de Lucro (%)" />}
+            />
           </CardContent>
         </Card>
       </form>
