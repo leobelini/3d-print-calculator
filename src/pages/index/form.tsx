@@ -8,6 +8,7 @@ import {
 import { InputGroupAddon } from '@/components/ui/input-group'
 import { withForm } from '@/hooks/use-app-form'
 import { defaultFormValues } from './types'
+import { Separator } from '@/components/ui/separator'
 
 const Form = withForm({
   defaultValues: defaultFormValues,
@@ -26,7 +27,7 @@ const Form = withForm({
               Informe dados sobre a depreciação da impressora.
             </CardDescription>
           </CardHeader>
-          <CardContent>
+          <CardContent className="flex flex-col gap-4">
             <form.AppField
               name="printerPrice"
               children={(f) => (
@@ -55,13 +56,13 @@ const Form = withForm({
             />
           </CardContent>
         </Card>
-
+        <Separator />
         <Card>
           <CardHeader>
             <CardTitle>Filamento</CardTitle>
             <CardDescription>Informe dados sobre o filamento.</CardDescription>
           </CardHeader>
-          <CardContent>
+          <CardContent className="flex flex-col gap-4">
             <form.AppField
               name="filamentCostPerKg"
               children={(f) => (
@@ -77,6 +78,7 @@ const Form = withForm({
             />
           </CardContent>
         </Card>
+        <Separator />
 
         <Card>
           <CardHeader>
@@ -85,7 +87,7 @@ const Form = withForm({
               Informe dados sobre o consumo de energia.
             </CardDescription>
           </CardHeader>
-          <CardContent>
+          <CardContent className="flex flex-col gap-4">
             <form.AppField
               name="electricityCostPerKwh"
               children={(f) => (
@@ -114,13 +116,14 @@ const Form = withForm({
             />
           </CardContent>
         </Card>
+        <Separator />
 
         <Card>
           <CardHeader>
             <CardTitle>Impressão</CardTitle>
             <CardDescription>Informe dados sobre a impressão.</CardDescription>
           </CardHeader>
-          <CardContent>
+          <CardContent className="flex flex-col gap-4">
             <form.AppField
               name="filamentUsedGrams"
               children={(f) => (
@@ -162,6 +165,7 @@ const Form = withForm({
             />
           </CardContent>
         </Card>
+        <Separator />
 
         {/* <Card>
           <CardHeader>
@@ -181,7 +185,7 @@ const Form = withForm({
             <CardTitle>Lucro</CardTitle>
             <CardDescription>Informe dados sobre o lucro.</CardDescription>
           </CardHeader>
-          <CardContent>
+          <CardContent className="flex flex-col gap-4">
             <form.AppField
               name="profitMarginPercent"
               children={(f) => (
