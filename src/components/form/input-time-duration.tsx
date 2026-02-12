@@ -2,6 +2,7 @@ import { forwardRef } from 'react'
 import { Field, FieldLabel } from '@/components/ui/field'
 import { TextFieldBase } from './text-field-base'
 import { cn } from '@/lib/utils'
+import { Input } from '../ui/input'
 
 interface InputTimeDurationProps {
   fieldProps?: React.ComponentProps<typeof Field>
@@ -103,7 +104,7 @@ const InputTimeDuration = forwardRef<HTMLInputElement, InputTimeDurationProps>(
         ref={ref}
       >
         {({ id, value, onChange, onBlur, ref: inputRef }) => (
-          <input
+          <Input
             ref={inputRef}
             id={id}
             type="text"
