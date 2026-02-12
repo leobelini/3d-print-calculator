@@ -1,6 +1,7 @@
 import { Outlet, createRootRoute, redirect } from '@tanstack/react-router'
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { TanStackDevtools } from '@tanstack/react-devtools'
+import { formDevtoolsPlugin } from '@tanstack/react-form-devtools'
 
 import { getLocale, shouldRedirect } from '@/paraglide/runtime'
 import { MainMenu } from '@/components/layout/main-menu'
@@ -37,6 +38,7 @@ export const Route = createRootRoute({
             name: 'Tanstack Router',
             render: <TanStackRouterDevtoolsPanel />,
           },
+          formDevtoolsPlugin(),
         ]}
       />
     </main>

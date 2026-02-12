@@ -1558,7 +1558,7 @@
   resolved "https://registry.yarnpkg.com/@tanstack/devtools-event-client/-/devtools-event-client-0.4.0.tgz#7c586e5bf4bc18999f8a19d0fa53657e4646e2a5"
   integrity sha512-RPfGuk2bDZgcu9bAJodvO2lnZeHuz4/71HjZ0bGb/SPg8+lyTA+RLSKQvo7fSmPSi8/vcH3aKQ8EM9ywf1olaw==
 
-"@tanstack/devtools-ui@0.4.4":
+"@tanstack/devtools-ui@0.4.4", "@tanstack/devtools-ui@^0.4.4":
   version "0.4.4"
   resolved "https://registry.yarnpkg.com/@tanstack/devtools-ui/-/devtools-ui-0.4.4.tgz#00c08ab493b849385d8474e9165c73bd955fe1b1"
   integrity sha512-5xHXFyX3nom0UaNfiOM92o6ziaHjGo3mcSGe2HD5Xs8dWRZNpdZ0Smd0B9ddEhy0oB+gXyMzZgUJb9DmrZV0Mg==
@@ -1566,6 +1566,13 @@
     clsx "^2.1.1"
     goober "^2.1.16"
     solid-js "^1.9.9"
+
+"@tanstack/devtools-utils@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@tanstack/devtools-utils/-/devtools-utils-0.3.0.tgz#f197e9500fc90f8c8e78be153407f972dae467ee"
+  integrity sha512-JgApXVrgtgSLIPrm/QWHx0u6c9Ji0MNMDWhwujapj8eMzux5aOfi+2Ycwzj0A0qITXA12SEPYV3HC568mDtYmQ==
+  dependencies:
+    "@tanstack/devtools-ui" "^0.4.4"
 
 "@tanstack/devtools-vite@^0.3.11":
   version "0.3.12"
@@ -1620,6 +1627,18 @@
     "@tanstack/pacer-lite" "^0.1.1"
     "@tanstack/store" "^0.7.7"
 
+"@tanstack/form-devtools@0.2.13":
+  version "0.2.13"
+  resolved "https://registry.yarnpkg.com/@tanstack/form-devtools/-/form-devtools-0.2.13.tgz#50d30dc8a07a625d6f72e611c4d05dadcdc6bb74"
+  integrity sha512-1ulPyukzs28GFKuY5Qkic3MHCkLm6wG/4ofqgsruHe44VXeCBMqtlwgExaPHrBOdhtfcy26TSJVDvOVJ+igWBA==
+  dependencies:
+    "@tanstack/devtools-ui" "^0.4.4"
+    "@tanstack/devtools-utils" "^0.3.0"
+    "@tanstack/form-core" "1.28.0"
+    clsx "^2.1.1"
+    dayjs "^1.11.18"
+    goober "^2.1.16"
+
 "@tanstack/history@1.154.14":
   version "1.154.14"
   resolved "https://registry.yarnpkg.com/@tanstack/history/-/history-1.154.14.tgz#eccbfd62a14c8364a0287ede0fb955bd6ae5aade"
@@ -1636,6 +1655,14 @@
   integrity sha512-a2Lmz8x+JoDrsU6f7uKRcyyY+k8mA/n5mb9h7XJ3Fz/y3+sPV9t7vAW1s5lyNkQyyDt6V1Oim99faLthoJSxMw==
   dependencies:
     "@tanstack/devtools" "0.7.0"
+
+"@tanstack/react-form-devtools@^0.2.13":
+  version "0.2.13"
+  resolved "https://registry.yarnpkg.com/@tanstack/react-form-devtools/-/react-form-devtools-0.2.13.tgz#9f068ab137955d2b3ad9bc3a44719120ca49ad56"
+  integrity sha512-ggDXw4Pyp5zkbz2j+wJqjTy462PvbHeY97az+cw2GDbtVM5VedpLH86QKAeZofnSgx5ZKPPPn0op4LSAYipDwQ==
+  dependencies:
+    "@tanstack/devtools-utils" "^0.3.0"
+    "@tanstack/form-devtools" "0.2.13"
 
 "@tanstack/react-form@^1.0.0":
   version "1.28.0"
@@ -2379,6 +2406,11 @@ data-urls@^6.0.0:
   dependencies:
     whatwg-mimetype "^5.0.0"
     whatwg-url "^15.1.0"
+
+dayjs@^1.11.18:
+  version "1.11.19"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.11.19.tgz#15dc98e854bb43917f12021806af897c58ae2938"
+  integrity sha512-t5EcLVS6QPBNqM2z8fakk/NKel+Xzshgt8FFKAn+qwlD1pzZWxh0nVCrvFK7ZDb6XucZeF9z8C7CBWTRIVApAw==
 
 debug@4, debug@^4.1.0, debug@^4.3.1, debug@^4.3.4, debug@^4.4.0, debug@^4.4.1, debug@^4.4.3:
   version "4.4.3"
