@@ -79,7 +79,14 @@ function App() {
             <form.AppField
               name="printerLifetimeHours"
               children={(f) => (
-                <f.InputText label="Vida útil da Impressora (horas)" />
+                <f.InputGroupText
+                  label="Vida útil da Impressora"
+                  inputProps={{
+                    type: 'number',
+                    step: '0.01',
+                  }}
+                  addon={<InputGroupAddon>H</InputGroupAddon>}
+                />
               )}
             />
           </CardContent>
@@ -94,7 +101,14 @@ function App() {
             <form.AppField
               name="filamentCostPerKg"
               children={(f) => (
-                <f.InputText label="Custo do Filamento por Kg" />
+                <f.InputGroupText
+                  label="Custo do Filamento"
+                  inputProps={{
+                    type: 'number',
+                    step: '0.01',
+                  }}
+                  addon={<InputGroupAddon>R$/kg</InputGroupAddon>}
+                />
               )}
             />
           </CardContent>
@@ -111,13 +125,27 @@ function App() {
             <form.AppField
               name="electricityCostPerKwh"
               children={(f) => (
-                <f.InputText label="Custo da Eletricidade por kWh" />
+                <f.InputGroupText
+                  label="Custo da Eletricidade"
+                  inputProps={{
+                    type: 'number',
+                    step: '0.01',
+                  }}
+                  addon={<InputGroupAddon>R$/kWh</InputGroupAddon>}
+                />
               )}
             />
             <form.AppField
               name="printerPowerConsumption"
               children={(f) => (
-                <f.InputText label="Consumo de Energia da Impressora (Watts)" />
+                <f.InputGroupText
+                  label="Consumo de Energia da Impressora"
+                  inputProps={{
+                    type: 'number',
+                    step: '0.01',
+                  }}
+                  addon={<InputGroupAddon>kW</InputGroupAddon>}
+                />
               )}
             />
           </CardContent>
@@ -132,18 +160,41 @@ function App() {
             <form.AppField
               name="filamentUsedGrams"
               children={(f) => (
-                <f.InputText label="Quantidade de Filamento Usado (Gramas)" />
+                <f.InputGroupText
+                  label="Quantidade de Filamento Usado"
+                  inputProps={{
+                    type: 'number',
+                    step: '0.01',
+                  }}
+                  addon={<InputGroupAddon>g</InputGroupAddon>}
+                />
               )}
             />
             <form.AppField
               name="printDurationHours"
               children={(f) => (
-                <f.InputText label="Duração da Impressão (horas)" />
+                <f.InputGroupText
+                  label="Duração da Impressão"
+                  inputProps={{
+                    type: 'number',
+                    step: '0.01',
+                  }}
+                  addon={<InputGroupAddon>H</InputGroupAddon>}
+                />
               )}
             />
             <form.AppField
               name="failureRatePercent"
-              children={(f) => <f.InputText label="Taxa de Falha (%)" />}
+              children={(f) => (
+                <f.InputGroupText
+                  label="Taxa de Falha"
+                  inputProps={{
+                    type: 'number',
+                    step: '0.01',
+                  }}
+                  addon={<InputGroupAddon>%</InputGroupAddon>}
+                />
+              )}
             />
           </CardContent>
         </Card>
@@ -169,7 +220,16 @@ function App() {
           <CardContent>
             <form.AppField
               name="profitMarginPercent"
-              children={(f) => <f.InputText label="Margem de Lucro (%)" />}
+              children={(f) => (
+                <f.InputGroupText
+                  label="Margem de Lucro"
+                  inputProps={{
+                    type: 'number',
+                    step: '0.01',
+                  }}
+                  addon={<InputGroupAddon>%</InputGroupAddon>}
+                />
+              )}
             />
           </CardContent>
         </Card>
