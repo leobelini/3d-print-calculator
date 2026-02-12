@@ -1,25 +1,7 @@
 import { InputGroupAddon } from '@/components/ui/input-group'
 import { withForm } from '@/hooks/use-app-form'
 import { defaultFormValues } from '../types'
-import { FaQuestionCircle } from 'react-icons/fa'
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from '@/components/ui/tooltip'
-
-const TooltipInfo = ({ content }: { content: React.ReactNode }) => {
-  return (
-    <Tooltip>
-      <TooltipTrigger>
-        <FaQuestionCircle className="text-muted-foreground" />
-      </TooltipTrigger>
-      <TooltipContent>{content}</TooltipContent>
-    </Tooltip>
-  )
-}
-
-TooltipInfo.displayName = 'TooltipInfo'
+import { TooltipInfo } from './tooltip-info'
 
 const PrinterDepreciationForm = withForm({
   defaultValues: defaultFormValues,
