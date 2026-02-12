@@ -1,3 +1,4 @@
+import React from 'react'
 import {
   Tooltip,
   TooltipContent,
@@ -5,7 +6,7 @@ import {
 } from '@/components/ui/tooltip'
 import { FaQuestionCircle } from 'react-icons/fa'
 
-function TooltipInfo({ content }: { content: React.ReactNode }) {
+const TooltipInfo = React.memo(({ content }: { content: React.ReactNode }) => {
   return (
     <Tooltip>
       <TooltipTrigger>
@@ -14,7 +15,7 @@ function TooltipInfo({ content }: { content: React.ReactNode }) {
       <TooltipContent className="max-w-xs">{content}</TooltipContent>
     </Tooltip>
   )
-}
+})
 
 TooltipInfo.displayName = 'TooltipInfo'
 
