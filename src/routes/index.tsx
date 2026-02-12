@@ -10,6 +10,7 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { useAppForm } from '@/hooks/use-app-form'
+import { InputGroupAddon } from '@/components/ui/input-group'
 
 export const Route = createFileRoute('/')({
   component: App,
@@ -64,7 +65,16 @@ function App() {
           <CardContent>
             <form.AppField
               name="printerPrice"
-              children={(f) => <f.InputText label="Preço da Impressora" />}
+              children={(f) => (
+                <f.InputGroupText
+                  label="Preço da Impressora"
+                  inputProps={{
+                    type: 'number',
+                    step: '0.01',
+                  }}
+                  addon={<InputGroupAddon>R$</InputGroupAddon>}
+                />
+              )}
             />
             <form.AppField
               name="printerLifetimeHours"
