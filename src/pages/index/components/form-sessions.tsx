@@ -1,6 +1,25 @@
 import { InputGroupAddon } from '@/components/ui/input-group'
 import { withForm } from '@/hooks/use-app-form'
 import { defaultFormValues } from '../types'
+import { FaQuestionCircle } from 'react-icons/fa'
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from '@/components/ui/tooltip'
+
+const TooltipInfo = ({ content }: { content: React.ReactNode }) => {
+  return (
+    <Tooltip>
+      <TooltipTrigger>
+        <FaQuestionCircle className="text-muted-foreground" />
+      </TooltipTrigger>
+      <TooltipContent>{content}</TooltipContent>
+    </Tooltip>
+  )
+}
+
+TooltipInfo.displayName = 'TooltipInfo'
 
 const PrinterDepreciationForm = withForm({
   defaultValues: defaultFormValues,
@@ -11,7 +30,12 @@ const PrinterDepreciationForm = withForm({
           name="printerPrice"
           children={(f) => (
             <f.InputGroupText
-              label="Preço da Impressora"
+              label={
+                <>
+                  Preço da impressora
+                  <TooltipInfo content="Informe o preço de compra da impressora." />
+                </>
+              }
               inputProps={{
                 type: 'number',
                 step: '0.01',
@@ -24,7 +48,12 @@ const PrinterDepreciationForm = withForm({
           name="printerLifetimeHours"
           children={(f) => (
             <f.InputGroupText
-              label="Vida útil da Impressora"
+              label={
+                <>
+                  Vida útil da impressora
+                  <TooltipInfo content="Informe a vida útil estimada da impressora em horas." />
+                </>
+              }
               inputProps={{
                 type: 'number',
                 step: '0.01',
@@ -49,7 +78,12 @@ const FilamentForm = withForm({
           name="filamentCostPerKg"
           children={(f) => (
             <f.InputGroupText
-              label="Custo do Filamento"
+              label={
+                <>
+                  Custo do filamento
+                  <TooltipInfo content="Informe o custo do filamento por quilograma." />
+                </>
+              }
               inputProps={{
                 type: 'number',
                 step: '0.01',
@@ -74,7 +108,12 @@ const EnergyForm = withForm({
           name="electricityCostPerKwh"
           children={(f) => (
             <f.InputGroupText
-              label="Custo da Eletricidade"
+              label={
+                <>
+                  Custo da eletricidade
+                  <TooltipInfo content="Informe o custo da eletricidade por quilowatt-hora." />
+                </>
+              }
               inputProps={{
                 type: 'number',
                 step: '0.01',
@@ -87,7 +126,12 @@ const EnergyForm = withForm({
           name="printerPowerConsumption"
           children={(f) => (
             <f.InputGroupText
-              label="Consumo de Energia da Impressora"
+              label={
+                <>
+                  Consumo de energia da impressora
+                  <TooltipInfo content="Informe o consumo de energia da impressora em quilowatts." />
+                </>
+              }
               inputProps={{
                 type: 'number',
                 step: '0.01',
@@ -112,7 +156,12 @@ const PrintForm = withForm({
           name="filamentUsedGrams"
           children={(f) => (
             <f.InputGroupText
-              label="Quantidade de Filamento Usado"
+              label={
+                <>
+                  Quantidade de filamento usado
+                  <TooltipInfo content="Informe a quantidade de filamento usado em gramas." />
+                </>
+              }
               inputProps={{
                 type: 'number',
                 step: '0.01',
@@ -125,7 +174,12 @@ const PrintForm = withForm({
           name="printDurationHours"
           children={(f) => (
             <f.InputGroupText
-              label="Duração da Impressão"
+              label={
+                <>
+                  Duração da impressão
+                  <TooltipInfo content="Informe a duração da impressão." />
+                </>
+              }
               inputProps={{
                 type: 'number',
                 step: '0.01',
@@ -138,7 +192,12 @@ const PrintForm = withForm({
           name="failureRatePercent"
           children={(f) => (
             <f.InputGroupText
-              label="Taxa de Falha"
+              label={
+                <>
+                  Taxa de falha
+                  <TooltipInfo content="Informe a taxa de falha em porcentagem." />
+                </>
+              }
               inputProps={{
                 type: 'number',
                 step: '0.01',
@@ -163,7 +222,12 @@ const ProfitForm = withForm({
           name="profitMarginPercent"
           children={(f) => (
             <f.InputGroupText
-              label="Margem de Lucro"
+              label={
+                <>
+                  Margem de lucro
+                  <TooltipInfo content="Informe a margem de lucro em porcentagem." />
+                </>
+              }
               inputProps={{
                 type: 'number',
                 step: '0.01',
