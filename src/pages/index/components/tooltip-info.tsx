@@ -11,7 +11,7 @@ function TooltipInfo({ content }: { content: React.ReactNode }) {
       <TooltipTrigger>
         <FaQuestionCircle className="text-muted-foreground" />
       </TooltipTrigger>
-      <TooltipContent>{content}</TooltipContent>
+      <TooltipContent className="max-w-xs">{content}</TooltipContent>
     </Tooltip>
   )
 }
