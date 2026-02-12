@@ -14,6 +14,7 @@ import { Fragment } from 'react'
 import { DiStreamline } from 'react-icons/di'
 import { SlEnergy } from 'react-icons/sl'
 import { GiPorcelainVase } from 'react-icons/gi'
+import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
 
 const sessions = [
   {
@@ -52,28 +53,31 @@ const Form = withForm({
   defaultValues: defaultFormValues,
   render: ({ form }) => {
     return (
-      <form
-        className="flex flex-col gap-4 flex-1"
-        onSubmit={(e) => {
-          e.preventDefault()
-        }}
-      >
-        {sessions.map((session) => {
-          const SessionForm = session.form
-          return (
-            <Fragment key={session.title as string}>
-              {session.title !== sessions[0].title && <Separator />}
-              <RenderSession
-                key={session.title as string}
-                title={session.title}
-                description={session.description}
-                icon={session.icon}
-                children={<SessionForm form={form} />}
-              />
-            </Fragment>
-          )
-        })}
-      </form>
+      <ScrollArea className="flex flex-1 max-h-[90dvh] pr-4">
+        <form
+          className="flex flex-col gap-4 flex-1"
+          onSubmit={(e) => {
+            e.preventDefault()
+          }}
+        >
+          {sessions.map((session) => {
+            const SessionForm = session.form
+            return (
+              <Fragment key={session.title as string}>
+                {session.title !== sessions[0].title && <Separator />}
+                <RenderSession
+                  key={session.title as string}
+                  title={session.title}
+                  description={session.description}
+                  icon={session.icon}
+                  children={<SessionForm form={form} />}
+                />
+              </Fragment>
+            )
+          })}
+        </form>
+        <ScrollBar orientation="horizontal" />
+      </ScrollArea>
     )
   },
 })
