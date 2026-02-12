@@ -48,8 +48,9 @@ function App() {
   })
 
   return (
-    <div>
+    <div className="flex flex-row w-full gap-4 p-4">
       <form
+        className="flex flex-col gap-4 flex-1"
         onSubmit={(e) => {
           e.preventDefault()
           form.handleSubmit()
@@ -199,18 +200,18 @@ function App() {
           </CardContent>
         </Card>
 
-        <Card>
+        {/* <Card>
           <CardHeader>
             <CardTitle>Custo extras</CardTitle>
             <CardDescription>
               Informe dados sobre os custos extras.
             </CardDescription>
-            {/* <CardAction>Card Action</CardAction> */}
           </CardHeader>
           <CardContent>
             <p>Card Content</p>
           </CardContent>
         </Card>
+         */}
 
         <Card>
           <CardHeader>
@@ -234,7 +235,33 @@ function App() {
           </CardContent>
         </Card>
       </form>
-      <div></div>
+      <div className="flex flex-col gap-4 flex-1">
+        <Card>
+          <CardHeader>
+            <CardTitle>Resultados do Cálculo</CardTitle>
+            <CardDescription>
+              Aqui você verá os resultados do cálculo baseado nos dados
+              fornecidos.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p>Card Content</p>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Lucro</CardTitle>
+            <CardDescription>
+              Detalhes sobre o lucro calculado com base na margem de lucro e nos
+              custos informados.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p>Card Content</p>
+          </CardContent>
+        </Card>
+      </div>
     </div>
   )
 }
