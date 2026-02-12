@@ -1,7 +1,7 @@
 import { forwardRef } from 'react'
-import { Field, FieldDescription, FieldLabel } from '@/components/ui/field'
+import { Field, FieldLabel } from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
-import { useFieldContext } from '@/hooks/use-app-form'
+import { TextFieldBase } from './text-field-base'
 
 interface InputTextProps {
   fieldProps?: React.ComponentProps<typeof Field>
@@ -23,32 +23,28 @@ const InputText = forwardRef<HTMLInputElement, InputTextProps>(
       description,
     },
     ref,
-  ) => {
-    const field = useFieldContext<string>()
-
-    return (
-      <Field {...fieldProps}>
-        {label && (
-          <FieldLabel htmlFor={field.name} {...labelProps}>
-            {label}
-          </FieldLabel>
-        )}
+  ) => (
+    <TextFieldBase
+      fieldProps={fieldProps}
+      labelProps={labelProps}
+      inputProps={inputProps}
+      descriptionProps={descriptionProps}
+      label={label}
+      description={description}
+      ref={ref}
+    >
+      {({ id, value, onChange, onBlur, ref: inputRef }) => (
         <Input
-          ref={ref}
-          id={field.name}
-          value={field.state.value}
-          onChange={(e) => field.handleChange(e.target.value)}
-          onBlur={field.handleBlur}
+          ref={inputRef}
+          id={id}
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          onBlur={onBlur}
           {...inputProps}
         />
-        {description && (
-          <FieldDescription {...descriptionProps}>
-            {description}
-          </FieldDescription>
-        )}
-      </Field>
-    )
-  },
+      )}
+    </TextFieldBase>
+  ),
 )
 
 InputText.displayName = 'InputText'

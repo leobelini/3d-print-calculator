@@ -1,13 +1,12 @@
 import { forwardRef } from 'react'
-import { Field, FieldDescription, FieldLabel } from '@/components/ui/field'
-import { Input } from '@/components/ui/input'
-import { useFieldContext } from '@/hooks/use-app-form'
+import { Field, FieldLabel } from '@/components/ui/field'
 import { InputGroup, InputGroupInput } from '../ui/input-group'
+import { TextFieldBase } from './text-field-base'
 
 interface InputTextProps {
   fieldProps?: React.ComponentProps<typeof Field>
   labelProps?: React.ComponentProps<typeof FieldLabel>
-  inputProps?: React.ComponentProps<typeof Input>
+  inputProps?: React.ComponentProps<typeof InputGroupInput>
   descriptionProps?: React.ComponentProps<'p'>
   label?: string | React.ReactNode
   description?: string | React.ReactNode
@@ -26,35 +25,31 @@ const InputGroupText = forwardRef<HTMLInputElement, InputTextProps>(
       addon,
     },
     ref,
-  ) => {
-    const field = useFieldContext<string>()
-
-    return (
-      <Field {...fieldProps}>
-        {label && (
-          <FieldLabel htmlFor={field.name} {...labelProps}>
-            {label}
-          </FieldLabel>
-        )}
+  ) => (
+    <TextFieldBase
+      fieldProps={fieldProps}
+      labelProps={labelProps}
+      descriptionProps={descriptionProps}
+      inputProps={inputProps}
+      label={label}
+      description={description}
+      ref={ref}
+    >
+      {({ id, value, onChange, onBlur, ref: inputRef }) => (
         <InputGroup>
           <InputGroupInput
-            ref={ref}
-            id={field.name}
-            value={field.state.value}
-            onChange={(e) => field.handleChange(e.target.value)}
-            onBlur={field.handleBlur}
+            ref={inputRef}
+            id={id}
+            value={value}
+            onChange={(e) => onChange(e.target.value)}
+            onBlur={onBlur}
             {...inputProps}
           />
           {addon && addon}
         </InputGroup>
-        {description && (
-          <FieldDescription {...descriptionProps}>
-            {description}
-          </FieldDescription>
-        )}
-      </Field>
-    )
-  },
+      )}
+    </TextFieldBase>
+  ),
 )
 
 InputGroupText.displayName = 'InputGroupText'
