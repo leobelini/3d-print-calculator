@@ -71,7 +71,7 @@ import { Link } from '@tanstack/react-router'
 
 export function MainMenu() {
   return (
-    <NavigationMenu className="w-full max-w-full justify-start">
+    <NavigationMenu className="w-full max-w-full justify-start flex-none">
       <NavigationMenuList
         className="h-12"
         //   className="w-full justify-start"

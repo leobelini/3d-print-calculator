@@ -1,39 +1,115 @@
 import { createFileRoute } from '@tanstack/react-router'
 import logo from '../logo.svg'
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
+import { useAppForm } from '@/hooks/use-app-form'
 
 export const Route = createFileRoute('/')({
   component: App,
 })
 
+interface FormType {}
+
 function App() {
+  const form = useAppForm({
+    defaultValues: {
+      name: '',
+    },
+    onSubmit: (values: FormType) => {
+      console.log('Form submitted with values:', values)
+    },
+  })
+
   return (
-    <div className="text-center">
-      <header className="min-h-screen flex flex-col items-center justify-center bg-[#282c34] text-white text-[calc(10px+2vmin)]">
-        <img
-          src={logo}
-          className="h-[40vmin] pointer-events-none animate-[spin_20s_linear_infinite]"
-          alt="logo"
-        />
-        <p>
-          Edit <code>src/routes/index.tsx</code> and save to reload.
-        </p>
-        <a
-          className="text-[#61dafb] hover:underline"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <a
-          className="text-[#61dafb] hover:underline"
-          href="https://tanstack.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn TanStack
-        </a>
-      </header>
+    <div>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault()
+          form.handleSubmit()
+        }}
+      >
+        <Card>
+          <CardHeader>
+            <CardTitle>Depreciação da Impressora</CardTitle>
+            <CardDescription>
+              Informe dados sobre a depreciação da impressora.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <form.AppField
+              name="name"
+              children={(f) => <f.InputText label="Nome" />}
+            />
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Filamento</CardTitle>
+            <CardDescription>Informe dados sobre o filamento.</CardDescription>
+            {/* <CardAction>Card Action</CardAction> */}
+          </CardHeader>
+          <CardContent>
+            <p>Card Content</p>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Energia</CardTitle>
+            <CardDescription>
+              Informe dados sobre o consumo de energia.
+            </CardDescription>
+            {/* <CardAction>Card Action</CardAction> */}
+          </CardHeader>
+          <CardContent>
+            <p>Card Content</p>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Impressão</CardTitle>
+            <CardDescription>Informe dados sobre a impressão.</CardDescription>
+            {/* <CardAction>Card Action</CardAction> */}
+          </CardHeader>
+          <CardContent>
+            <p>Card Content</p>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Custo extras</CardTitle>
+            <CardDescription>
+              Informe dados sobre os custos extras.
+            </CardDescription>
+            {/* <CardAction>Card Action</CardAction> */}
+          </CardHeader>
+          <CardContent>
+            <p>Card Content</p>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Lucro</CardTitle>
+            <CardDescription>Informe dados sobre o lucro.</CardDescription>
+            {/* <CardAction>Card Action</CardAction> */}
+          </CardHeader>
+          <CardContent>
+            <p>Card Content</p>
+          </CardContent>
+        </Card>
+      </form>
+      <div></div>
     </div>
   )
 }
