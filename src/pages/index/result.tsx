@@ -24,7 +24,11 @@ interface ResultProps {
 function Result({ values }: ResultProps) {
   const renderValue = (value: number) => {
     if (isNaN(value) || value === null || value === undefined || value === 0) {
-      return <Skeleton className="w-20 h-5" />
+      return (
+        <div className="flex justify-end">
+          <Skeleton className="w-20 h-5 " />
+        </div>
+      )
     }
     return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
   }
@@ -89,9 +93,7 @@ function Result({ values }: ResultProps) {
                     }
                   />
                 </TableCell>
-                <TableCell className="text-right">
-                  {renderValue(depreciationPerHour)}
-                </TableCell>
+                <TableCell>{renderValue(depreciationPerHour)}</TableCell>
               </TableRow>
               <TableRow>
                 <TableCell className="font-medium flex items-center gap-1">
@@ -108,9 +110,7 @@ function Result({ values }: ResultProps) {
                     }
                   />
                 </TableCell>
-                <TableCell className="text-right">
-                  {renderValue(depreciationCost)}
-                </TableCell>
+                <TableCell>{renderValue(depreciationCost)}</TableCell>
               </TableRow>
               <TableRow>
                 <TableCell className="font-medium flex items-center gap-1">
@@ -126,9 +126,7 @@ function Result({ values }: ResultProps) {
                     }
                   />
                 </TableCell>
-                <TableCell className="text-right">
-                  {renderValue(filamentCost)}
-                </TableCell>
+                <TableCell>{renderValue(filamentCost)}</TableCell>
               </TableRow>
               <TableRow>
                 <TableCell className="font-medium flex items-center gap-1">
@@ -145,9 +143,7 @@ function Result({ values }: ResultProps) {
                     }
                   />
                 </TableCell>
-                <TableCell className="text-right">
-                  {renderValue(filamentLossCost)}
-                </TableCell>
+                <TableCell>{renderValue(filamentLossCost)}</TableCell>
               </TableRow>
               <TableRow>
                 <TableCell className="font-medium flex items-center gap-1">
@@ -163,13 +159,11 @@ function Result({ values }: ResultProps) {
                     }
                   />
                 </TableCell>
-                <TableCell className="text-right">
-                  {renderValue(energyCost)}
-                </TableCell>
+                <TableCell>{renderValue(energyCost)}</TableCell>
               </TableRow>
               {/* <TableRow>
                 <TableCell className="font-medium">Custos extras</TableCell>
-                <TableCell className="text-right">R$ 0,00</TableCell>
+                <TableCell >R$ 0,00</TableCell>
               </TableRow> */}
             </TableBody>
           </Table>

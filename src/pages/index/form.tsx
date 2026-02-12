@@ -53,7 +53,7 @@ const Form = withForm({
   defaultValues: defaultFormValues,
   render: ({ form }) => {
     return (
-      <ScrollArea className="flex flex-1 max-h-[90dvh] pr-4">
+      <ScrollArea className="flex flex-1 lg:max-h-[90dvh] pr-4">
         <form
           className="flex flex-col gap-4 flex-1"
           onSubmit={(e) => {
