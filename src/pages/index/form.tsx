@@ -1,15 +1,7 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
-import { InputGroupAddon } from '@/components/ui/input-group'
 import { withForm } from '@/hooks/use-app-form'
 import { defaultFormValues } from './types'
 import { Separator } from '@/components/ui/separator'
-import { PiPrinterBold } from 'react-icons/pi'
+import { PiMoneyBold, PiPrinterBold } from 'react-icons/pi'
 import {
   PrinterDepreciationForm,
   EnergyForm,
@@ -17,6 +9,44 @@ import {
   PrintForm,
   ProfitForm,
 } from './components/form-sessions'
+import { RenderSession } from './components/render-sessions'
+import { Fragment } from 'react'
+import { DiStreamline } from 'react-icons/di'
+import { SlEnergy } from 'react-icons/sl'
+import { GiPorcelainVase } from 'react-icons/gi'
+
+const sessions = [
+  {
+    title: 'Depreciação da Impressora',
+    description: 'Informe dados sobre a depreciação da impressora.',
+    icon: <PiPrinterBold className="text-3xl" />,
+    form: PrinterDepreciationForm,
+  },
+  {
+    title: 'Filamento',
+    description: 'Informe dados sobre o filamento.',
+    icon: <DiStreamline className="text-3xl" />,
+    form: FilamentForm,
+  },
+  {
+    title: 'Energia',
+    description: 'Informe dados sobre o consumo de energia.',
+    icon: <SlEnergy className="text-3xl" />,
+    form: EnergyForm,
+  },
+  {
+    title: 'Impressão',
+    description: 'Informe dados sobre a impressão.',
+    icon: <GiPorcelainVase className="text-3xl" />,
+    form: PrintForm,
+  },
+  {
+    title: 'Lucro',
+    description: 'Informe dados sobre o lucro.',
+    icon: <PiMoneyBold className="text-3xl" />,
+    form: ProfitForm,
+  },
+]
 
 const Form = withForm({
   defaultValues: defaultFormValues,
@@ -28,78 +58,21 @@ const Form = withForm({
           e.preventDefault()
         }}
       >
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <PiPrinterBold className="text-3xl" />
-              Depreciação da Impressora
-            </CardTitle>
-            <CardDescription>
-              Informe dados sobre a depreciação da impressora.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="flex flex-col gap-4">
-            <PrinterDepreciationForm form={form} />
-          </CardContent>
-        </Card>
-        <Separator />
-        <Card>
-          <CardHeader>
-            <CardTitle>Filamento</CardTitle>
-            <CardDescription>Informe dados sobre o filamento.</CardDescription>
-          </CardHeader>
-          <CardContent className="flex flex-col gap-4">
-            <FilamentForm form={form} />
-          </CardContent>
-        </Card>
-        <Separator />
-
-        <Card>
-          <CardHeader>
-            <CardTitle>Energia</CardTitle>
-            <CardDescription>
-              Informe dados sobre o consumo de energia.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="flex flex-col gap-4">
-            <EnergyForm form={form} />
-          </CardContent>
-        </Card>
-        <Separator />
-
-        <Card>
-          <CardHeader>
-            <CardTitle>Impressão</CardTitle>
-            <CardDescription>Informe dados sobre a impressão.</CardDescription>
-          </CardHeader>
-          <CardContent className="flex flex-col gap-4">
-            <PrintForm form={form} />
-          </CardContent>
-        </Card>
-        <Separator />
-
-        {/* <Card>
-          <CardHeader>
-            <CardTitle>Custo extras</CardTitle>
-            <CardDescription>
-              Informe dados sobre os custos extras.
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <p>Card Content</p>
-          </CardContent>
-        </Card>
-         */}
-
-        <Card>
-          <CardHeader>
-            <CardTitle>Lucro</CardTitle>
-            <CardDescription>Informe dados sobre o lucro.</CardDescription>
-          </CardHeader>
-          <CardContent className="flex flex-col gap-4">
-            <ProfitForm form={form} />
-          </CardContent>
-        </Card>
+        {sessions.map((session) => {
+          const SessionForm = session.form
+          return (
+            <Fragment key={session.title as string}>
+              {session.title !== sessions[0].title && <Separator />}
+              <RenderSession
+                key={session.title as string}
+                title={session.title}
+                description={session.description}
+                icon={session.icon}
+                children={<SessionForm form={form} />}
+              />
+            </Fragment>
+          )
+        })}
       </form>
     )
   },
