@@ -137,7 +137,7 @@ const PrintForm = withForm({
         <form.AppField
           name="filamentUsedGrams"
           children={(f) => (
-            <f.InputGroupText
+            <f.InputMask
               label={
                 <>
                   Quantidade de filamento usado
@@ -148,25 +148,20 @@ const PrintForm = withForm({
                 type: 'number',
                 step: '0.01',
               }}
-              addon={<InputGroupAddon>g</InputGroupAddon>}
+              // addon={<InputGroupAddon>g</InputGroupAddon>}
             />
           )}
         />
         <form.AppField
           name="printDurationHours"
           children={(f) => (
-            <f.InputGroupText
+            <f.InputTimeDuration
               label={
                 <>
                   Duração da impressão
                   <TooltipInfo content="Informe a duração da impressão." />
                 </>
               }
-              inputProps={{
-                type: 'number',
-                step: '0.01',
-              }}
-              addon={<InputGroupAddon>H</InputGroupAddon>}
             />
           )}
         />

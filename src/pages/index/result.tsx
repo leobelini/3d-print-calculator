@@ -29,16 +29,32 @@ function Result({ values }: ResultProps) {
     return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
   }
 
+  // Converte H:MM para horas decimais (ex: "1:30" -> 1.5)
+  const convertTimeToHours = (time: string | number): number => {
+    if (typeof time === 'number') return time
+    if (!time || typeof time !== 'string') return 0
+
+    const parts = time.split(':')
+    if (parts.length !== 2) return 0
+
+    const hours = parseInt(parts[0], 10) || 0
+    const minutes = parseInt(parts[1], 10) || 0
+
+    return hours + minutes / 60
+  }
+
+  const printDurationInHours = convertTimeToHours(values.printDurationHours)
+
   const depreciationPerHour =
     values.printerPrice / (values.printerLifetimeHours || 1)
-  const depreciationCost = depreciationPerHour * values.printDurationHours
+  const depreciationCost = depreciationPerHour * printDurationInHours
   const filamentUsedKg = values.filamentUsedGrams / 1000
   const filamentCost = filamentUsedKg * values.filamentCostPerKg
   const failureRate = values.failureRatePercent / 100
   const filamentLossCost = filamentCost * failureRate
   const filamentCostWithFailure = filamentCost + filamentLossCost
   const powerInKw = values.printerPowerConsumption
-  const energyConsumed = powerInKw * values.printDurationHours
+  const energyConsumed = powerInKw * printDurationInHours
   const energyCost = energyConsumed * values.electricityCostPerKwh
   const totalCost = depreciationCost + filamentCostWithFailure + energyCost
   const salePrice = totalCost * (1 + values.profitMarginPercent / 100)

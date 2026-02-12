@@ -5,7 +5,7 @@ export interface FormType {
   filamentUsedGrams: number // Quantidade de filamento usado em gramas (Filament Used Grams)
   electricityCostPerKwh: number // Custo da eletricidade por kWh R$ (Electricity Cost per kWh)
   printerPowerConsumption: number // Consumo de energia da impressora em watts (Printer Power Consumption)
-  printDurationHours: number // Duração da impressão em horas (Print Duration Hours)
+  printDurationHours: string // Duração da impressão em horas (Print Duration Hours)
   failureRatePercent: number // Taxa de falha em porcentagem (Failure Rate Percentage)
   profitMarginPercent: number // Margem de lucro em porcentagem (Profit Margin Percentage)
 }
@@ -16,8 +16,8 @@ export const defaultFormValues: FormType = {
   filamentCostPerKg: 0,
   filamentUsedGrams: 0,
   electricityCostPerKwh: 0,
-  printerPowerConsumption: 0,
-  printDurationHours: 0,
-  failureRatePercent: 0,
-  profitMarginPercent: 0,
+  printerPowerConsumption: 0.2,
+  printDurationHours: '',
+  failureRatePercent: 10,
+  profitMarginPercent: 30,
 }
