@@ -22,8 +22,6 @@ O **3D Print Calculator** é uma ferramenta essencial para makers, empresas de i
 - 🔄 **Taxa de Falha**: Incorpora percentual de falhas nas impressões ao custo final
 - 📈 **Margem de Lucro**: Calcula automaticamente o preço de venda baseado na sua margem desejada
 - ⚡ **Interface Responsiva**: Design moderno e adaptável para desktop e mobile
-- 🌍 **Suporte Multi-idioma**: Interface disponível em português e alemão
-- 🎨 **Tema Claro/Escuro**: Alterne entre temas conforme sua preferência
 - 📊 **Resultados Detalhados**: Visualize o breakdown completo de todos os custos envolvidos
 
 ---
@@ -39,10 +37,8 @@ Este projeto foi desenvolvido com as seguintes tecnologias de ponta:
 - **[TanStack Form](https://tanstack.com/form)** - Gerenciamento de formulários performático
 - **[Tailwind CSS](https://tailwindcss.com/)** - Framework CSS utility-first
 - **[Shadcn/ui](https://ui.shadcn.com/)** - Componentes de UI reutilizáveis e personalizáveis
-- **[Zod](https://zod.dev/)** - Validação de schemas TypeScript-first
 - **[Inlang Paraglide](https://inlang.com/m/gerre34r/library-inlang-paraglideJs)** - Internacionalização (i18n)
-- **[Lucide React](https://lucide.dev/)** - Ícones modernos e elegantes
-- **[Vitest](https://vitest.dev/)** - Framework de testes unitários
+- **[React Icons](https://react-icons.github.io/react-icons/)** - Ícones modernos e elegantes
 
 ---
 
@@ -60,7 +56,7 @@ Antes de começar, você precisa ter instalado em sua máquina:
 1. Clone o repositório
 
 ```bash
-git clone https://github.com/seu-usuario/3d-print-calculator.git
+git clone https://github.com/leobelini/3d-print-calculator
 ```
 
 2. Acesse a pasta do projeto
@@ -111,8 +107,6 @@ A aplicação está disponível online em:
 
 **[🔗 https://seu-deploy-url.vercel.app](#)**
 
-> 💡 Você pode fazer deploy facilmente em plataformas como Vercel, Netlify ou GitHub Pages
-
 ---
 
 ## 📂 Estrutura do Projeto
@@ -152,7 +146,7 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 ## 👨‍💻 Autor
 
-Desenvolvido com ❤️ por [Seu Nome](https://github.com/seu-usuario)
+Desenvolvido por [Léo Belini](https://github.com/leobelini)
 
 ---
 
