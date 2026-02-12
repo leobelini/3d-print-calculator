@@ -1,319 +1,163 @@
-Welcome to your new TanStack app! 
+<div align="center">
 
-# Getting Started
+# 🖨️ 3D Print Calculator
 
-To run this application:
+### Calculadora de Custos para Impressão 3D
+
+Uma aplicação web moderna e intuitiva para calcular o custo real de suas impressões 3D, considerando todos os fatores importantes como depreciação da impressora, consumo de energia, filamento e margem de lucro.
+
+[🚀 Acessar Aplicação](#) | [📖 Documentação](#funcionalidades) | [🐛 Reportar Bug](../../issues)
+
+</div>
+
+---
+
+## 📋 Sobre o Projeto
+
+O **3D Print Calculator** é uma ferramenta essencial para makers, empresas de impressão 3D e entusiastas que desejam precificar seus trabalhos de forma profissional e precisa. A aplicação considera múltiplos fatores de custo que muitas vezes são esquecidos, garantindo que você tenha uma visão completa do investimento em cada impressão.
+
+### ✨ Funcionalidades
+
+- 💰 **Cálculo Completo de Custos**: Considera depreciação da impressora, filamento, energia elétrica
+- 🔄 **Taxa de Falha**: Incorpora percentual de falhas nas impressões ao custo final
+- 📈 **Margem de Lucro**: Calcula automaticamente o preço de venda baseado na sua margem desejada
+- ⚡ **Interface Responsiva**: Design moderno e adaptável para desktop e mobile
+- 🌍 **Suporte Multi-idioma**: Interface disponível em português e alemão
+- 🎨 **Tema Claro/Escuro**: Alterne entre temas conforme sua preferência
+- 📊 **Resultados Detalhados**: Visualize o breakdown completo de todos os custos envolvidos
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+Este projeto foi desenvolvido com as seguintes tecnologias de ponta:
+
+- **[React 19](https://react.dev/)** - Biblioteca JavaScript para construção de interfaces
+- **[TypeScript](https://www.typescriptlang.org/)** - Superset JavaScript com tipagem estática
+- **[Vite](https://vitejs.dev/)** - Build tool extremamente rápido
+- **[TanStack Router](https://tanstack.com/router)** - Roteamento type-safe para React
+- **[TanStack Form](https://tanstack.com/form)** - Gerenciamento de formulários performático
+- **[Tailwind CSS](https://tailwindcss.com/)** - Framework CSS utility-first
+- **[Shadcn/ui](https://ui.shadcn.com/)** - Componentes de UI reutilizáveis e personalizáveis
+- **[Zod](https://zod.dev/)** - Validação de schemas TypeScript-first
+- **[Inlang Paraglide](https://inlang.com/m/gerre34r/library-inlang-paraglideJs)** - Internacionalização (i18n)
+- **[Lucide React](https://lucide.dev/)** - Ícones modernos e elegantes
+- **[Vitest](https://vitest.dev/)** - Framework de testes unitários
+
+---
+
+## 🚀 Como Rodar o Projeto
+
+### Pré-requisitos
+
+Antes de começar, você precisa ter instalado em sua máquina:
+
+- [Node.js](https://nodejs.org/) (versão 18 ou superior)
+- [Yarn](https://yarnpkg.com/) (gerenciador de pacotes)
+
+### Instalação
+
+1. Clone o repositório
+
+```bash
+git clone https://github.com/seu-usuario/3d-print-calculator.git
+```
+
+2. Acesse a pasta do projeto
+
+```bash
+cd 3d-print-calculator
+```
+
+3. Instale as dependências
 
 ```bash
 yarn install
-yarn run dev
 ```
 
-# Building For Production
-
-To build this application for production:
+4. Inicie o servidor de desenvolvimento
 
 ```bash
-yarn run build
+yarn dev
 ```
 
-## Testing
+5. Acesse a aplicação em seu navegador
 
-This project uses [Vitest](https://vitest.dev/) for testing. You can run the tests with:
-
-```bash
-yarn run test
+```
+http://localhost:3000
 ```
 
-## Styling
+---
 
-This project uses [Tailwind CSS](https://tailwindcss.com/) for styling.
+## 📦 Scripts Disponíveis
 
+No diretório do projeto, você pode executar:
 
-## Linting & Formatting
+| Comando        | Descrição                                           |
+| -------------- | --------------------------------------------------- |
+| `yarn dev`     | Inicia o servidor de desenvolvimento na porta 3000  |
+| `yarn build`   | Cria a build de produção otimizada                  |
+| `yarn preview` | Visualiza a build de produção localmente            |
+| `yarn test`    | Executa os testes com Vitest                        |
+| `yarn lint`    | Verifica o código com ESLint                        |
+| `yarn format`  | Formata o código com Prettier                       |
+| `yarn check`   | Executa Prettier e ESLint com correções automáticas |
 
+---
 
-This project uses [eslint](https://eslint.org/) and [prettier](https://prettier.io/) for linting and formatting. Eslint is configured using [tanstack/eslint-config](https://tanstack.com/config/latest/docs/eslint). The following scripts are available:
+## 🌐 Deploy
 
-```bash
-yarn run lint
-yarn run format
-yarn run check
+A aplicação está disponível online em:
+
+**[🔗 https://seu-deploy-url.vercel.app](#)**
+
+> 💡 Você pode fazer deploy facilmente em plataformas como Vercel, Netlify ou GitHub Pages
+
+---
+
+## 📂 Estrutura do Projeto
+
+```
+3d-print-calculator/
+├── src/
+│   ├── components/       # Componentes reutilizáveis
+│   ├── hooks/           # Custom hooks
+│   ├── lib/             # Utilitários e helpers
+│   ├── pages/           # Páginas da aplicação
+│   ├── routes/          # Configuração de rotas
+│   └── paraglide/       # Arquivos de internacionalização
+├── public/              # Arquivos estáticos
+└── project.inlang/      # Configuração do i18n
 ```
 
+---
 
-# Paraglide i18n
+## 🤝 Como Contribuir
 
-This add-on wires up ParaglideJS for localized routing and message formatting.
+Contribuições são sempre bem-vindas! Se você tem alguma sugestão para melhorar este projeto:
 
-- Messages live in `project.inlang/messages`.
-- URLs are localized through the Paraglide Vite plugin and router `rewrite` hooks.
-- Run the dev server or build to regenerate the `src/paraglide` outputs.
+1. Faça um Fork do projeto
+2. Crie uma Branch para sua Feature (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Push para a Branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
 
+---
 
-## Shadcn
+## 📝 Licença
 
-Add components using the latest version of [Shadcn](https://ui.shadcn.com/).
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
-```bash
-pnpm dlx shadcn@latest add button
-```
+---
 
+## 👨‍💻 Autor
 
+Desenvolvido com ❤️ por [Seu Nome](https://github.com/seu-usuario)
 
-## Routing
-This project uses [TanStack Router](https://tanstack.com/router). The initial setup is a file based router. Which means that the routes are managed as files in `src/routes`.
+---
 
-### Adding A Route
+<div align="center">
 
-To add a new route to your application just add another a new file in the `./src/routes` directory.
+### ⭐ Se este projeto foi útil para você, considere dar uma estrela!
 
-TanStack will automatically generate the content of the route file for you.
-
-Now that you have two routes you can use a `Link` component to navigate between them.
-
-### Adding Links
-
-To use SPA (Single Page Application) navigation you will need to import the `Link` component from `@tanstack/react-router`.
-
-```tsx
-import { Link } from "@tanstack/react-router";
-```
-
-Then anywhere in your JSX you can use it like so:
-
-```tsx
-<Link to="/about">About</Link>
-```
-
-This will create a link that will navigate to the `/about` route.
-
-More information on the `Link` component can be found in the [Link documentation](https://tanstack.com/router/v1/docs/framework/react/api/router/linkComponent).
-
-### Using A Layout
-
-In the File Based Routing setup the layout is located in `src/routes/__root.tsx`. Anything you add to the root route will appear in all the routes. The route content will appear in the JSX where you use the `<Outlet />` component.
-
-Here is an example layout that includes a header:
-
-```tsx
-import { Outlet, createRootRoute } from '@tanstack/react-router'
-import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
-
-import { Link } from "@tanstack/react-router";
-
-export const Route = createRootRoute({
-  component: () => (
-    <>
-      <header>
-        <nav>
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
-        </nav>
-      </header>
-      <Outlet />
-      <TanStackRouterDevtools />
-    </>
-  ),
-})
-```
-
-The `<TanStackRouterDevtools />` component is not required so you can remove it if you don't want it in your layout.
-
-More information on layouts can be found in the [Layouts documentation](https://tanstack.com/router/latest/docs/framework/react/guide/routing-concepts#layouts).
-
-
-## Data Fetching
-
-There are multiple ways to fetch data in your application. You can use TanStack Query to fetch data from a server. But you can also use the `loader` functionality built into TanStack Router to load the data for a route before it's rendered.
-
-For example:
-
-```tsx
-const peopleRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: "/people",
-  loader: async () => {
-    const response = await fetch("https://swapi.dev/api/people");
-    return response.json() as Promise<{
-      results: {
-        name: string;
-      }[];
-    }>;
-  },
-  component: () => {
-    const data = peopleRoute.useLoaderData();
-    return (
-      <ul>
-        {data.results.map((person) => (
-          <li key={person.name}>{person.name}</li>
-        ))}
-      </ul>
-    );
-  },
-});
-```
-
-Loaders simplify your data fetching logic dramatically. Check out more information in the [Loader documentation](https://tanstack.com/router/latest/docs/framework/react/guide/data-loading#loader-parameters).
-
-### React-Query
-
-React-Query is an excellent addition or alternative to route loading and integrating it into you application is a breeze.
-
-First add your dependencies:
-
-```bash
-yarn add @tanstack/react-query @tanstack/react-query-devtools
-```
-
-Next we'll need to create a query client and provider. We recommend putting those in `main.tsx`.
-
-```tsx
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-
-// ...
-
-const queryClient = new QueryClient();
-
-// ...
-
-if (!rootElement.innerHTML) {
-  const root = ReactDOM.createRoot(rootElement);
-
-  root.render(
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
-    </QueryClientProvider>
-  );
-}
-```
-
-You can also add TanStack Query Devtools to the root route (optional).
-
-```tsx
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-
-const rootRoute = createRootRoute({
-  component: () => (
-    <>
-      <Outlet />
-      <ReactQueryDevtools buttonPosition="top-right" />
-      <TanStackRouterDevtools />
-    </>
-  ),
-});
-```
-
-Now you can use `useQuery` to fetch your data.
-
-```tsx
-import { useQuery } from "@tanstack/react-query";
-
-import "./App.css";
-
-function App() {
-  const { data } = useQuery({
-    queryKey: ["people"],
-    queryFn: () =>
-      fetch("https://swapi.dev/api/people")
-        .then((res) => res.json())
-        .then((data) => data.results as { name: string }[]),
-    initialData: [],
-  });
-
-  return (
-    <div>
-      <ul>
-        {data.map((person) => (
-          <li key={person.name}>{person.name}</li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
-export default App;
-```
-
-You can find out everything you need to know on how to use React-Query in the [React-Query documentation](https://tanstack.com/query/latest/docs/framework/react/overview).
-
-## State Management
-
-Another common requirement for React applications is state management. There are many options for state management in React. TanStack Store provides a great starting point for your project.
-
-First you need to add TanStack Store as a dependency:
-
-```bash
-yarn add @tanstack/store
-```
-
-Now let's create a simple counter in the `src/App.tsx` file as a demonstration.
-
-```tsx
-import { useStore } from "@tanstack/react-store";
-import { Store } from "@tanstack/store";
-import "./App.css";
-
-const countStore = new Store(0);
-
-function App() {
-  const count = useStore(countStore);
-  return (
-    <div>
-      <button onClick={() => countStore.setState((n) => n + 1)}>
-        Increment - {count}
-      </button>
-    </div>
-  );
-}
-
-export default App;
-```
-
-One of the many nice features of TanStack Store is the ability to derive state from other state. That derived state will update when the base state updates.
-
-Let's check this out by doubling the count using derived state.
-
-```tsx
-import { useStore } from "@tanstack/react-store";
-import { Store, Derived } from "@tanstack/store";
-import "./App.css";
-
-const countStore = new Store(0);
-
-const doubledStore = new Derived({
-  fn: () => countStore.state * 2,
-  deps: [countStore],
-});
-doubledStore.mount();
-
-function App() {
-  const count = useStore(countStore);
-  const doubledCount = useStore(doubledStore);
-
-  return (
-    <div>
-      <button onClick={() => countStore.setState((n) => n + 1)}>
-        Increment - {count}
-      </button>
-      <div>Doubled - {doubledCount}</div>
-    </div>
-  );
-}
-
-export default App;
-```
-
-We use the `Derived` class to create a new store that is derived from another store. The `Derived` class has a `mount` method that will start the derived store updating.
-
-Once we've created the derived store we can use it in the `App` component just like we would any other store using the `useStore` hook.
-
-You can find out everything you need to know on how to use TanStack Store in the [TanStack Store documentation](https://tanstack.com/store/latest).
-
-# Demo files
-
-Files prefixed with `demo` can be safely deleted. They are there to provide a starting point for you to play around with the features you've installed.
-
-# Learn More
-
-You can learn more about all of the offerings from TanStack in the [TanStack documentation](https://tanstack.com).
+</div>
