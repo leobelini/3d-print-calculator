@@ -1,5 +1,6 @@
 {
   "name": "3d-print-calculator",
+  "homepage": "https://github.com/leobelini/3d-print-calculator",
   "private": true,
   "type": "module",
   "scripts": {
@@ -9,6 +10,7 @@
     "test": "vitest run",
     "lint": "eslint",
     "format": "prettier",
+    "deploy": "gh-pages -d dist",
     "check": "prettier --write . && eslint --fix"
   },
   "dependencies": {
@@ -21,6 +23,7 @@
     "@tanstack/router-plugin": "^1.132.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "gh-pages": "^6.3.0",
     "radix-ui": "^1.4.3",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",

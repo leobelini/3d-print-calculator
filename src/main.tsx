@@ -15,8 +15,8 @@ import { TooltipProvider } from './components/ui/tooltip.tsx'
 // Create a new router instance
 const router = createRouter({
   routeTree,
+  basepath: import.meta.env.PROD ? '/3d-print-calculator/' : '/',
   context: {},
-  // Paraglide URL rewrite docs: https://github.com/TanStack/router/tree/main/examples/react/i18n-paraglide#rewrite-url
   rewrite: {
     input: ({ url }) => deLocalizeUrl(url),
     output: ({ url }) => localizeUrl(url),
