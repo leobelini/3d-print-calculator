@@ -11,6 +11,7 @@ interface InputTextProps {
   label?: string | React.ReactNode
   description?: string | React.ReactNode
   addon?: React.ReactNode
+  transformValue?: (value: string | number) => string | number
 }
 
 const InputGroupText = forwardRef<HTMLInputElement, InputTextProps>(
@@ -23,6 +24,7 @@ const InputGroupText = forwardRef<HTMLInputElement, InputTextProps>(
       label,
       description,
       addon,
+      transformValue,
     },
     ref,
   ) => (
@@ -40,8 +42,8 @@ const InputGroupText = forwardRef<HTMLInputElement, InputTextProps>(
           <InputGroupInput
             ref={inputRef}
             id={id}
-            value={value}
-            onChange={(e) => onChange(e.target.value)}
+            value={transformValue ? transformValue(value) : value}
+            onChange={(e) => onChange(e.currentTarget.value)}
             onBlur={onBlur}
             {...inputProps}
           />

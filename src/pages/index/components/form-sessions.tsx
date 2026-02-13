@@ -2,6 +2,7 @@ import { InputGroupAddon } from '@/components/ui/input-group'
 import { withForm } from '@/hooks/use-app-form'
 import { defaultFormValues } from '../types'
 import { TooltipInfo } from './tooltip-info'
+import { normalizeNumericValue } from '@/lib/transform-values'
 
 const PrinterDepreciationForm = withForm({
   defaultValues: defaultFormValues,
@@ -40,6 +41,7 @@ const PrinterDepreciationForm = withForm({
                 type: 'number',
                 step: '0.01',
               }}
+              transformValue={normalizeNumericValue}
               addon={<InputGroupAddon>H</InputGroupAddon>}
             />
           )}
@@ -70,6 +72,7 @@ const FilamentForm = withForm({
                 type: 'number',
                 step: '0.01',
               }}
+              transformValue={normalizeNumericValue}
               addon={<InputGroupAddon>R$/kg</InputGroupAddon>}
             />
           )}
@@ -100,6 +103,7 @@ const EnergyForm = withForm({
                 type: 'number',
                 step: '0.01',
               }}
+              transformValue={normalizeNumericValue}
               addon={<InputGroupAddon>R$/kWh</InputGroupAddon>}
             />
           )}
@@ -118,6 +122,7 @@ const EnergyForm = withForm({
                 type: 'number',
                 step: '0.01',
               }}
+              transformValue={normalizeNumericValue}
               addon={<InputGroupAddon>kW</InputGroupAddon>}
             />
           )}
@@ -148,7 +153,8 @@ const PrintForm = withForm({
                 type: 'number',
                 step: '0.01',
               }}
-              // addon={<InputGroupAddon>g</InputGroupAddon>}
+              transformValue={normalizeNumericValue}
+              addon={<InputGroupAddon>g</InputGroupAddon>}
             />
           )}
         />
@@ -179,6 +185,7 @@ const PrintForm = withForm({
                 type: 'number',
                 step: '0.01',
               }}
+              transformValue={normalizeNumericValue}
               addon={<InputGroupAddon>%</InputGroupAddon>}
             />
           )}
@@ -209,6 +216,7 @@ const ProfitForm = withForm({
                 type: 'number',
                 step: '0.01',
               }}
+              transformValue={normalizeNumericValue}
               addon={<InputGroupAddon>%</InputGroupAddon>}
             />
           )}

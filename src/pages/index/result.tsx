@@ -16,6 +16,7 @@ import type { FormType } from './types'
 import { Skeleton } from '@/components/ui/skeleton'
 import { Separator } from '@/components/ui/separator'
 import { TooltipInfo } from './components/tooltip-info'
+import { convertTimeToHours } from '@/lib/transform-values'
 
 interface ResultProps {
   values: FormType
@@ -31,20 +32,6 @@ function Result({ values }: ResultProps) {
       )
     }
     return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
-  }
-
-  // Converte H:MM para horas decimais (ex: "1:30" -> 1.5)
-  const convertTimeToHours = (time: string | number): number => {
-    if (typeof time === 'number') return time
-    if (!time || typeof time !== 'string') return 0
-
-    const parts = time.split(':')
-    if (parts.length !== 2) return 0
-
-    const hours = parseInt(parts[0], 10) || 0
-    const minutes = parseInt(parts[1], 10) || 0
-
-    return hours + minutes / 60
   }
 
   const printDurationInHours = convertTimeToHours(values.printDurationHours)
