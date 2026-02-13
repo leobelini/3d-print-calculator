@@ -17,3 +17,10 @@ export const convertTimeToHours = (time: string | number): number => {
 
   return hours + minutes / 60
 }
+
+export const formatCurrency = (value: number): string => {
+  if (isNaN(value) || value === null || value === undefined || value === 0) {
+    return ''
+  }
+  return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+}
