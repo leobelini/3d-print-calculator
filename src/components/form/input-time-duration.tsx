@@ -28,14 +28,11 @@ const InputTimeDuration = forwardRef<HTMLInputElement, InputTimeDurationProps>(
     const formatTime = (digits: string): string => {
       if (!digits) return ''
 
-      // Preenche com zeros à esquerda se necessário
       const padded = digits.padStart(3, '0')
 
-      // Separa horas e minutos (últimos 2 dígitos são minutos)
       const minutes = padded.slice(-2)
       const hoursStr = padded.slice(0, -2)
 
-      // Remove zeros à esquerda das horas
       const hours = parseInt(hoursStr, 10).toString()
 
       return `${hours}:${minutes}`
@@ -48,22 +45,16 @@ const InputTimeDuration = forwardRef<HTMLInputElement, InputTimeDurationProps>(
       return (e: React.ChangeEvent<HTMLInputElement>) => {
         const input = e.target.value
 
-        // Remove tudo que não é dígito
         let digits = input.replace(/\D/g, '')
 
-        // Limita a um número razoável de dígitos (ex: 5 dígitos = 999:59)
         digits = digits.slice(0, 5)
 
-        // Valida os minutos (últimos 2 dígitos)
         if (digits.length >= 2) {
           const minutes = parseInt(digits.slice(-2), 10)
           if (minutes > 59) {
-            // Se os minutos forem > 59, não atualiza
             return
           }
         }
-
-        // Formata e atualiza
         const formatted = formatTime(digits)
         onChange(formatted)
       }
@@ -71,7 +62,6 @@ const InputTimeDuration = forwardRef<HTMLInputElement, InputTimeDurationProps>(
 
     const handleKeyDown = (_currentValue: string) => {
       return (e: React.KeyboardEvent<HTMLInputElement>) => {
-        // Permite navegação e comandos de edição
         const allowedKeys = [
           'Backspace',
           'Delete',
@@ -85,8 +75,6 @@ const InputTimeDuration = forwardRef<HTMLInputElement, InputTimeDurationProps>(
         if (allowedKeys.includes(e.key) || e.metaKey || e.ctrlKey || e.altKey) {
           return
         }
-
-        // Permite apenas dígitos
         if (!/^\d$/.test(e.key)) {
           e.preventDefault()
         }
