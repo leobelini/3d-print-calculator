@@ -10,6 +10,7 @@ import {
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu'
 import { Link } from '@tanstack/react-router'
+import { cn } from '@/lib/utils'
 
 // const components: { title: string; href: string; description: string }[] = [
 //   {
@@ -77,9 +78,18 @@ export function MainMenu() {
         //   className="w-full justify-start"
       >
         <NavigationMenuItem>
-          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link to="/">Calculadora</Link>
-          </NavigationMenuLink>
+          <Link to="/">
+            {({ isActive }) => (
+              <NavigationMenuLink
+                className={cn(
+                  navigationMenuTriggerStyle(),
+                  isActive && 'bg-accent text-accent-foreground font-bold',
+                )}
+              >
+                Calculadora
+              </NavigationMenuLink>
+            )}
+          </Link>
         </NavigationMenuItem>
         {/* <NavigationMenuItem>
           <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
