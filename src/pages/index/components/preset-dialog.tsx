@@ -35,21 +35,21 @@ export function NewPresetDialog({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle>Novo Preset</DialogTitle>
+          <DialogTitle>Nova Configuração</DialogTitle>
           <DialogDescription>
-            Você está prestes a criar um novo preset para a sessão "
-            {sessionTitle}". Por favor, insira um nome para o preset e clique em
-            "Salvar".
+            Você está prestes a criar uma nova configuração para a sessão "
+            {sessionTitle}". Por favor, insira um nome para a configuração e
+            clique em "Salvar".
           </DialogDescription>
         </DialogHeader>
         <div className="flex items-center gap-2">
           <div className="grid flex-1 gap-2">
             <Label htmlFor="preset-name" className="sr-only">
-              Nome do Preset
+              Nome da Configuração
             </Label>
             <Input
               id="preset-name"
-              placeholder="Digite o nome do preset"
+              placeholder="Digite o nome da configuração"
               onChange={(e) => onPresetNameChange(e.target.value)}
               value={presetName}
             />

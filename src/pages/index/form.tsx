@@ -58,7 +58,7 @@ const Form = withForm({
   render: ({ form }) => {
     return (
       <form
-        className="flex flex-col gap-4 flex-1"
+        className="flex flex-col gap-5 flex-1"
         onSubmit={(e) => {
           e.preventDefault()
         }}
@@ -68,7 +68,9 @@ const Form = withForm({
           const key = session.key
           return (
             <Fragment key={key}>
-              {session.title !== sessions[0].title && <Separator />}
+              {session.title !== sessions[0].title && (
+                <Separator className="bg-gradient-to-r from-blue-200/0 via-blue-200 to-purple-200/0 dark:from-blue-900/0 dark:via-blue-900 dark:to-purple-900/0 my-2" />
+              )}
               <RenderSession
                 sessionKey={key}
                 title={session.title}

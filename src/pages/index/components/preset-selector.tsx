@@ -35,13 +35,13 @@ export function PresetSelector({
   const isPresetSelected = selectedPreset !== ''
 
   return (
-    <div className="flex flex-row gap-2">
+    <div className="flex flex-row gap-2 w-full">
       <Button
         variant="ghost"
         size="icon"
         disabled={!isPresetSelected}
         onClick={onSavePreset}
-        title="Salvar preset"
+        title="Salvar configuração"
       >
         <LuSave />
       </Button>
@@ -51,18 +51,18 @@ export function PresetSelector({
         size="icon"
         disabled={isNewPreset || !isPresetSelected}
         onClick={onDeletePreset}
-        title="Deletar preset"
+        title="Deletar configuração"
       >
         <LuTrash2 />
       </Button>
 
       <Select onValueChange={onPresetChange} value={selectedPreset}>
-        <SelectTrigger className="w-full max-w-48">
-          <SelectValue placeholder="Selecione um preset" />
+        <SelectTrigger className="w-full">
+          <SelectValue placeholder="Selecione uma configuração" />
         </SelectTrigger>
         <SelectContent>
           <SelectGroup>
-            <SelectLabel>Presets salvos</SelectLabel>
+            <SelectLabel>Configurações salvas</SelectLabel>
             {allOptions.map((option) => (
               <SelectItem key={option.value} value={option.value}>
                 {option.label}
