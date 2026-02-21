@@ -103,7 +103,7 @@ function RenderSession({
             </CardDescription>
           </CardHeader>
           <CollapsibleContent>
-            <CardContent className="bg-white/50 dark:bg-slate-900/50">
+            <CardContent className="bg-white/50 dark:bg-slate-900/50 rounded-xl">
               <div className="flex flex-col gap-4 pt-6 pb-6">
                 <div className="flex items-center">
                   <PresetSelector
