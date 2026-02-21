@@ -1,4 +1,3 @@
-import * as React from 'react'
 import { MdLightMode, MdDarkMode } from 'react-icons/md'
 import { useTheme } from '@/components/theme-provider'
 import { Button } from '@/components/ui/button'
@@ -10,7 +9,7 @@ import {
 } from '@/components/ui/dropdown-menu'
 
 export function ModeToggle() {
-  const { theme, setTheme } = useTheme()
+  const { setTheme } = useTheme()
 
   return (
     <DropdownMenu>

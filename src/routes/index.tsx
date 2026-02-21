@@ -1,7 +1,16 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useAppForm } from '@/hooks/use-app-form'
-import { PageIndex, defaultFormValues } from '@/pages/index'
+import { defaultFormValues } from '@/pages/index'
 import { useStore } from '@tanstack/react-form'
+import { lazy, Suspense } from 'react'
+import { Skeleton } from '@/components/ui/skeleton'
+
+const PageIndexForm = lazy(() =>
+  import('@/pages/index').then((m) => ({ default: m.PageIndex.Form })),
+)
+const PageIndexResult = lazy(() =>
+  import('@/pages/index').then((m) => ({ default: m.PageIndex.Result })),
+)
 
 export const Route = createFileRoute('/')({
   component: App,
@@ -53,9 +62,13 @@ function App() {
         </div>
 
         <div className="flex flex-col lg:flex-row w-full gap-4 p-4">
-          <PageIndex.Form form={form} />
+          <Suspense fallback={<Skeleton className="h-96 flex-1" />}>
+            <PageIndexForm form={form} />
+          </Suspense>
           <div className="flex flex-col gap-4 flex-1 lg:sticky lg:top-20 lg:h-fit">
-            <PageIndex.Result values={values} />
+            <Suspense fallback={<Skeleton className="h-96 w-full" />}>
+              <PageIndexResult values={values} />
+            </Suspense>
           </div>
         </div>
       </main>

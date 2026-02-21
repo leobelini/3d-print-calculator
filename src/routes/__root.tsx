@@ -1,11 +1,21 @@
 import { Outlet, createRootRoute, redirect } from '@tanstack/react-router'
-import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
-import { TanStackDevtools } from '@tanstack/react-devtools'
+import { lazy, Suspense } from 'react'
 import { formDevtoolsPlugin } from '@tanstack/react-form-devtools'
 
 import { getLocale, shouldRedirect } from '@/paraglide/runtime'
 import { MainMenu } from '@/components/layout/main-menu'
 import { PageHeader } from '@/components/layout/page-header'
+
+const TanStackRouterDevtoolsPanel = lazy(() =>
+  import('@tanstack/react-router-devtools').then((m) => ({
+    default: m.TanStackRouterDevtoolsPanel,
+  })),
+)
+const TanStackDevtools = lazy(() =>
+  import('@tanstack/react-devtools').then((m) => ({
+    default: m.TanStackDevtools,
+  })),
+)
 
 export const Route = createRootRoute({
   beforeLoad: async () => {
@@ -32,18 +42,20 @@ export const Route = createRootRoute({
 
       <MainMenu />
       <Outlet />
-      <TanStackDevtools
-        config={{
-          position: 'bottom-right',
-        }}
-        plugins={[
-          {
-            name: 'Tanstack Router',
-            render: <TanStackRouterDevtoolsPanel />,
-          },
-          formDevtoolsPlugin(),
-        ]}
-      />
+      <Suspense fallback={null}>
+        <TanStackDevtools
+          config={{
+            position: 'bottom-right',
+          }}
+          plugins={[
+            {
+              name: 'Tanstack Router',
+              render: <TanStackRouterDevtoolsPanel />,
+            },
+            formDevtoolsPlugin(),
+          ]}
+        />
+      </Suspense>
     </main>
   ),
 })
