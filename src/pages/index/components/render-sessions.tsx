@@ -60,7 +60,7 @@ function RenderSession({
 }: RenderSessionsProps) {
   const [open, setOpen] = useState(true)
   const [openDialog, setOpenDialog] = useState(false)
-  const [selectedPreset, setSelectedPreset] = useState<string | null>(null)
+  const [selectedPreset, setSelectedPreset] = useState<string>('')
   const [presetName, setPresetName] = useState('')
 
   const settings = useLiveQuery(
@@ -117,7 +117,7 @@ function RenderSession({
         values: currentValues,
       })
       .then(() => {
-        setSelectedPreset(null)
+        setSelectedPreset('')
         setPresetName('')
         setOpenDialog(false)
       })
@@ -139,16 +139,13 @@ function RenderSession({
               <Button
                 variant="ghost"
                 size="icon"
-                disabled={selectedPreset === null || selectedPreset === ''}
+                disabled={selectedPreset === ''}
                 onClick={handleSavePreset}
               >
                 <LuSave />
               </Button>
 
-              <Select
-                onValueChange={handlePresetChange}
-                value={selectedPreset || undefined}
-              >
+              <Select onValueChange={handlePresetChange} value={selectedPreset}>
                 <SelectTrigger className="w-full max-w-48">
                   <SelectValue placeholder="Selecione um preset" />
                 </SelectTrigger>
