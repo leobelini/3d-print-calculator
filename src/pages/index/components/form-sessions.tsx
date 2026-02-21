@@ -47,6 +47,25 @@ const PrinterDepreciationForm = withForm({
             />
           )}
         />
+        <form.AppField
+          name="printerDepreciation.printerPowerConsumption"
+          children={(f) => (
+            <f.InputGroupText
+              label={
+                <>
+                  Consumo de energia da impressora
+                  <TooltipInfo content="Informe o consumo de energia da impressora em quilowatts." />
+                </>
+              }
+              inputProps={{
+                type: 'number',
+                step: '0.01',
+              }}
+              transformValue={normalizeNumericValue}
+              addon={<InputGroupAddon>kW</InputGroupAddon>}
+            />
+          )}
+        />
       </>
     )
   },
@@ -108,25 +127,6 @@ const EnergyForm = withForm({
               }}
               transformValue={normalizeNumericValue}
               addon={<InputGroupAddon>R$/kWh</InputGroupAddon>}
-            />
-          )}
-        />
-        <form.AppField
-          name="energy.printerPowerConsumption"
-          children={(f) => (
-            <f.InputGroupText
-              label={
-                <>
-                  Consumo de energia da impressora
-                  <TooltipInfo content="Informe o consumo de energia da impressora em quilowatts." />
-                </>
-              }
-              inputProps={{
-                type: 'number',
-                step: '0.01',
-              }}
-              transformValue={normalizeNumericValue}
-              addon={<InputGroupAddon>kW</InputGroupAddon>}
             />
           )}
         />

@@ -17,7 +17,7 @@ function App() {
   return (
     <div className="flex flex-col lg:flex-row w-full gap-4 p-4">
       <PageIndex.Form form={form} />
-      <div className="flex flex-col gap-4 flex-1">
+      <div className="flex flex-col gap-4 flex-1 lg:sticky lg:top-4 lg:h-fit">
         <PageIndex.Result values={values} />
       </div>
     </div>

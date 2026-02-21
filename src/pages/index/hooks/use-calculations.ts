@@ -30,7 +30,7 @@ export function useCalculations(values: FormType): CalculationResults {
     const filamentLossCost = filamentCost * failureRate
     const filamentCostWithFailure = filamentCost + filamentLossCost
 
-    const powerInKw = energy.printerPowerConsumption
+    const powerInKw = printerDepreciation.printerPowerConsumption
     const energyConsumed = powerInKw * printDurationInHours
     const energyCost = energyConsumed * energy.electricityCostPerKwh
 

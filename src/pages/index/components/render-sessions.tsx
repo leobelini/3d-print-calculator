@@ -4,6 +4,7 @@ import {
   CardAction,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
@@ -14,7 +15,7 @@ import {
 } from '@/components/ui/collapsible'
 import { useState } from 'react'
 import { LuChevronsUp, LuChevronsDown } from 'react-icons/lu'
-import { usePresetManager } from './hooks/use-preset-manager'
+import { usePresetManager } from '../hooks/use-preset-manager'
 import { PresetSelector } from './preset-selector'
 import { NewPresetDialog } from './preset-dialog'
 
@@ -71,29 +72,33 @@ function RenderSession({
     <>
       <Collapsible open={open} onOpenChange={setOpen}>
         <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              {icon}
-              {title}
-            </CardTitle>
+          <CardHeader className="flex flex-col">
+            <div className="flex flex-row justify-between items-center w-full">
+              <CardTitle className="flex items-center gap-2">
+                {icon}
+                {title}
+              </CardTitle>
+              <CardAction className="justify-end flex flex-row gap-2">
+                <CollapsibleTrigger asChild>
+                  <Button variant="ghost" size="icon">
+                    {open ? <LuChevronsUp /> : <LuChevronsDown />}
+                  </Button>
+                </CollapsibleTrigger>
+              </CardAction>
+            </div>
             <CardDescription>{description}</CardDescription>
-            <CardAction className="justify-end flex flex-row gap-2">
-              <PresetSelector
-                options={presetOptions}
-                selectedPreset={selectedPreset}
-                onPresetChange={handlePresetChange}
-                onSavePreset={handleSavePreset}
-                onDeletePreset={handleDeletePreset}
-              />
-              <CollapsibleTrigger asChild>
-                <Button variant="ghost" size="icon">
-                  {open ? <LuChevronsUp /> : <LuChevronsDown />}
-                </Button>
-              </CollapsibleTrigger>
-            </CardAction>
           </CardHeader>
           <CollapsibleContent>
             <CardContent className="flex flex-col gap-4">
+              <div className="flex items-center justify-end">
+                <PresetSelector
+                  options={presetOptions}
+                  selectedPreset={selectedPreset}
+                  onPresetChange={handlePresetChange}
+                  onSavePreset={handleSavePreset}
+                  onDeletePreset={handleDeletePreset}
+                />
+              </div>
               {children}
             </CardContent>
           </CollapsibleContent>
