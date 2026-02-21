@@ -20,7 +20,7 @@ function Result({ values }: ResultProps) {
   const calculations = useCalculations(values)
 
   return (
-    <Card className="border-0 shadow-lg dark:shadow-blue-900/30 mt-2 bg-gradient-to-br from-white to-blue-50/30 dark:from-slate-900 dark:to-blue-950/30">
+    <Card className="border-0 shadow-lg dark:shadow-blue-900/30 mt-2 bg-gradient-to-br from-white to-blue-50/30 dark:from-slate-900 dark:to-blue-950/30 py-0">
       <CardHeader className="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-t-lg py-4">
         <CardTitle className="text-white text-xl font-bold">
           Resultados do cálculo
