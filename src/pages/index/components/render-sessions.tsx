@@ -90,7 +90,7 @@ function RenderSession({
           </CardHeader>
           <CollapsibleContent>
             <CardContent className="flex flex-col gap-4">
-              <div className="flex items-center justify-end">
+              <div className="flex items-center">
                 <PresetSelector
                   options={presetOptions}
                   selectedPreset={selectedPreset}

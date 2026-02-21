@@ -15,11 +15,15 @@ function App() {
   const values = useStore(form.store, (s) => s.values)
 
   return (
-    <div className="flex flex-col lg:flex-row w-full gap-4 p-4">
-      <PageIndex.Form form={form} />
-      <div className="flex flex-col gap-4 flex-1 lg:sticky lg:top-4 lg:h-fit">
-        <PageIndex.Result values={values} />
-      </div>
+    <div className="flex flex-col min-h-screen bg-background">
+      <main className="flex-1">
+        <div className="flex flex-col lg:flex-row w-full gap-4 p-4">
+          <PageIndex.Form form={form} />
+          <div className="flex flex-col gap-4 flex-1 lg:sticky lg:top-20 lg:h-fit">
+            <PageIndex.Result values={values} />
+          </div>
+        </div>
+      </main>
     </div>
   )
 }

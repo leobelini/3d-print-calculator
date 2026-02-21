@@ -5,6 +5,7 @@ import { formDevtoolsPlugin } from '@tanstack/react-form-devtools'
 
 import { getLocale, shouldRedirect } from '@/paraglide/runtime'
 import { MainMenu } from '@/components/layout/main-menu'
+import { PageHeader } from '@/components/layout/page-header'
 
 export const Route = createRootRoute({
   beforeLoad: async () => {
@@ -27,6 +28,8 @@ export const Route = createRootRoute({
 
   component: () => (
     <main className="min-h-screen flex flex-col">
+      <PageHeader />
+
       <MainMenu />
       <Outlet />
       <TanStackDevtools
