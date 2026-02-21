@@ -57,7 +57,7 @@ export function NewPresetDialog({
         </div>
         <DialogFooter className="justify-start">
           <Button onClick={onCreatePreset}>Salvar</Button>
-          <DialogClose className="ml-2">
+          <DialogClose asChild>
             <Button variant="outline" onClick={onClose}>
               Cancelar
             </Button>
