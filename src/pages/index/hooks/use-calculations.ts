@@ -16,25 +16,26 @@ export interface CalculationResults {
 
 export function useCalculations(values: FormType): CalculationResults {
   return useMemo(() => {
-    const printDurationInHours = convertTimeToHours(values.printDurationHours)
-
+    const { energy, filament, print, printerDepreciation, profit } = values
+    const printDurationInHours = convertTimeToHours(print.printDurationHours)
     const depreciationPerHour =
-      values.printerPrice / (values.printerLifetimeHours || 1)
+      printerDepreciation.printerPrice /
+      (printerDepreciation.printerLifetimeHours || 1)
     const depreciationCost = depreciationPerHour * printDurationInHours
 
-    const filamentUsedKg = values.filamentUsedGrams / 1000
-    const filamentCost = filamentUsedKg * values.filamentCostPerKg
+    const filamentUsedKg = print.filamentUsedGrams / 1000
+    const filamentCost = filamentUsedKg * filament.filamentCostPerKg
 
-    const failureRate = values.failureRatePercent / 100
+    const failureRate = print.failureRatePercent / 100
     const filamentLossCost = filamentCost * failureRate
     const filamentCostWithFailure = filamentCost + filamentLossCost
 
-    const powerInKw = values.printerPowerConsumption
+    const powerInKw = energy.printerPowerConsumption
     const energyConsumed = powerInKw * printDurationInHours
-    const energyCost = energyConsumed * values.electricityCostPerKwh
+    const energyCost = energyConsumed * energy.electricityCostPerKwh
 
     const totalCost = depreciationCost + filamentCostWithFailure + energyCost
-    const salePrice = totalCost * (1 + values.profitMarginPercent / 100)
+    const salePrice = totalCost * (1 + profit.profitMarginPercent / 100)
     const profitValue = salePrice - totalCost
 
     return {

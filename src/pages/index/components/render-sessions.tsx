@@ -37,6 +37,7 @@ import {
 } from '@/components/ui/dialog'
 import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
+import type { FormType } from '../types'
 
 interface RenderSessionsProps {
   sessionKey: string
@@ -44,6 +45,8 @@ interface RenderSessionsProps {
   description: React.ReactNode
   children: React.ReactNode
   icon?: React.ReactNode
+  getFieldValue: () => any
+  setValue: (value: any) => void
 }
 
 function RenderSession({
@@ -52,6 +55,8 @@ function RenderSession({
   description,
   children,
   icon,
+  getFieldValue,
+  setValue,
 }: RenderSessionsProps) {
   const [open, setOpen] = useState(true)
   const [openDialog, setOpenDialog] = useState(false)
@@ -71,11 +76,27 @@ function RenderSession({
 
   options.unshift({ label: 'Novo', value: 'new' })
 
+  const handlePresetChange = (value: string) => {
+    setSelectedPreset(value)
+    if (value === 'new') {
+      setPresetName('')
+      return
+    }
+
+    const preset = settings?.find((s) => s.id.toString() === value)
+    if (preset) {
+      setValue(preset.values)
+    }
+  }
+
   const handleSavePreset = () => {
     if (selectedPreset === 'new') {
       setOpenDialog(true)
     } else {
-      // Lógica para salvar o preset existente
+      const preset = settings?.find((s) => s.id.toString() === selectedPreset)
+      if (preset) {
+        db.settings.update(preset.id, { values: getFieldValue() })
+      }
     }
   }
 
@@ -84,20 +105,24 @@ function RenderSession({
     setPresetName('')
   }
 
-  const handleCreatePreset = (name: string) => {
-    if (!name) return
+  const handleCreatePreset = () => {
+    if (!presetName) return
+
+    const currentValues = getFieldValue() || {}
 
     db.settings
       .add({
-        name,
+        name: presetName,
         sessionName: sessionKey,
-        values: {}, // Aqui você pode adicionar os dados do preset
+        values: currentValues,
       })
       .then(() => {
         setSelectedPreset(null)
         setPresetName('')
         setOpenDialog(false)
       })
+
+    handleCloseDialog()
   }
 
   return (
@@ -121,7 +146,7 @@ function RenderSession({
               </Button>
 
               <Select
-                onValueChange={(value) => setSelectedPreset(value)}
+                onValueChange={handlePresetChange}
                 value={selectedPreset || undefined}
               >
                 <SelectTrigger className="w-full max-w-48">
@@ -177,7 +202,7 @@ function RenderSession({
             </div>
           </div>
           <DialogFooter className="justify-start ">
-            <Button onClick={handleSavePreset}>Salvar</Button>
+            <Button onClick={handleCreatePreset}>Salvar</Button>
             <DialogClose className="ml-2">
               <Button variant="outline">Cancelar</Button>
             </DialogClose>

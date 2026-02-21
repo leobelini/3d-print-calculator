@@ -19,40 +19,40 @@ import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
 const sessions = [
   {
     title: 'Depreciação da Impressora',
-    key: 'printer-depreciation',
+    key: 'printerDepreciation' as const,
     description: 'Informe dados sobre a depreciação da impressora.',
     icon: <PiPrinterBold className="text-3xl" />,
     form: PrinterDepreciationForm,
   },
   {
     title: 'Filamento',
-    key: 'filament',
+    key: 'filament' as const,
     description: 'Informe dados sobre o filamento.',
     icon: <DiStreamline className="text-3xl" />,
     form: FilamentForm,
   },
   {
     title: 'Energia',
-    key: 'energy',
+    key: 'energy' as const,
     description: 'Informe dados sobre o consumo de energia.',
     icon: <SlEnergy className="text-3xl" />,
     form: EnergyForm,
   },
   {
     title: 'Impressão',
-    key: 'print',
+    key: 'print' as const,
     description: 'Informe dados sobre a impressão.',
     icon: <GiPorcelainVase className="text-3xl" />,
     form: PrintForm,
   },
   {
     title: 'Lucro',
-    key: 'profit',
+    key: 'profit' as const,
     description: 'Informe dados sobre o lucro.',
     icon: <PiMoneyBold className="text-3xl" />,
     form: ProfitForm,
   },
-]
+] as const
 
 const Form = withForm({
   defaultValues: defaultFormValues,
@@ -76,6 +76,8 @@ const Form = withForm({
                   title={session.title}
                   description={session.description}
                   icon={session.icon}
+                  getFieldValue={() => form.getFieldValue(key)}
+                  setValue={(value: any) => form.setFieldValue(key, value)}
                   children={<SessionForm form={form} />}
                 />
               </Fragment>

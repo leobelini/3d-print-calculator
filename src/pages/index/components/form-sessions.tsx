@@ -6,11 +6,12 @@ import { normalizeNumericValue } from '@/lib/transform-values'
 
 const PrinterDepreciationForm = withForm({
   defaultValues: defaultFormValues,
+  formId: 'printerDepreciation',
   render: ({ form }) => {
     return (
       <>
         <form.AppField
-          name="printerPrice"
+          name="printerDepreciation.printerPrice"
           children={(f) => (
             <f.InputGroupText
               label={
@@ -28,7 +29,7 @@ const PrinterDepreciationForm = withForm({
           )}
         />
         <form.AppField
-          name="printerLifetimeHours"
+          name="printerDepreciation.printerLifetimeHours"
           children={(f) => (
             <f.InputGroupText
               label={
@@ -55,11 +56,12 @@ PrinterDepreciationForm.displayName = 'PrinterDepreciationForm'
 
 const FilamentForm = withForm({
   defaultValues: defaultFormValues,
+  formId: 'filament',
   render: ({ form }) => {
     return (
       <>
         <form.AppField
-          name="filamentCostPerKg"
+          name="filament.filamentCostPerKg"
           children={(f) => (
             <f.InputGroupText
               label={
@@ -86,11 +88,12 @@ FilamentForm.displayName = 'FilamentForm'
 
 const EnergyForm = withForm({
   defaultValues: defaultFormValues,
+  formId: 'energy',
   render: ({ form }) => {
     return (
       <>
         <form.AppField
-          name="electricityCostPerKwh"
+          name="energy.electricityCostPerKwh"
           children={(f) => (
             <f.InputGroupText
               label={
@@ -109,7 +112,7 @@ const EnergyForm = withForm({
           )}
         />
         <form.AppField
-          name="printerPowerConsumption"
+          name="energy.printerPowerConsumption"
           children={(f) => (
             <f.InputGroupText
               label={
@@ -136,11 +139,12 @@ EnergyForm.displayName = 'EnergyForm'
 
 const PrintForm = withForm({
   defaultValues: defaultFormValues,
+  formId: 'print',
   render: ({ form }) => {
     return (
       <>
         <form.AppField
-          name="filamentUsedGrams"
+          name="print.filamentUsedGrams"
           children={(f) => (
             <f.InputGroupText
               label={
@@ -159,7 +163,7 @@ const PrintForm = withForm({
           )}
         />
         <form.AppField
-          name="printDurationHours"
+          name="print.printDurationHours"
           children={(f) => (
             <f.InputTimeDuration
               label={
@@ -172,7 +176,7 @@ const PrintForm = withForm({
           )}
         />
         <form.AppField
-          name="failureRatePercent"
+          name="print.failureRatePercent"
           children={(f) => (
             <f.InputGroupText
               label={
@@ -199,11 +203,12 @@ PrintForm.displayName = 'PrintForm'
 
 const ProfitForm = withForm({
   defaultValues: defaultFormValues,
+  formId: 'profit',
   render: ({ form }) => {
     return (
       <>
         <form.AppField
-          name="profitMarginPercent"
+          name="profit.profitMarginPercent"
           children={(f) => (
             <f.InputGroupText
               label={
