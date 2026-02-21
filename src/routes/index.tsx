@@ -15,7 +15,7 @@ function App() {
   const values = useStore(form.store, (s) => s.values)
 
   return (
-    <div className="flex flex-col md:flex-row w-full gap-4 p-4">
+    <div className="flex flex-col lg:flex-row w-full gap-4 p-4">
       <PageIndex.Form form={form} />
       <div className="flex flex-col gap-4 flex-1">
         <PageIndex.Result values={values} />
