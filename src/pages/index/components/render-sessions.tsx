@@ -57,7 +57,7 @@ function RenderSession({
 
   const handleSavePreset = () => {
     if (selectedPreset === 'new') {
-      // Dialog will open automatically in handlePresetChange
+      handleCreatePreset(getFieldValue())
     } else {
       handleSaveExistingPreset(getFieldValue())
     }
