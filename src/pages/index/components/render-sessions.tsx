@@ -70,10 +70,10 @@ function RenderSession({
   return (
     <>
       <Collapsible open={open} onOpenChange={setOpen}>
-        <Card className="border-0 shadow-md hover:shadow-lg transition-shadow duration-300 dark:shadow-blue-900/20 dark:hover:shadow-blue-900/40 py-0 gap-0">
-          <CardHeader className="flex flex-col bg-gradient-to-r from-blue-50 to-purple-50 dark:from-slate-800/50 dark:to-blue-900/30 rounded-t-lg py-2">
+        <Card variant="elevated">
+          <CardHeader variant="secondary">
             <div className="flex flex-row justify-between items-center w-full">
-              <CardTitle className="flex items-center gap-3 text-lg font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent dark:from-blue-400 dark:to-purple-400">
+              <CardTitle variant="secondary">
                 {icon && (
                   <span className="text-blue-600 dark:text-blue-400 text-2xl">
                     {icon}
@@ -97,12 +97,10 @@ function RenderSession({
                 </CollapsibleTrigger>
               </CardAction>
             </div>
-            <CardDescription className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-              {description}
-            </CardDescription>
+            <CardDescription variant="secondary">{description}</CardDescription>
           </CardHeader>
           <CollapsibleContent>
-            <CardContent className="bg-white/50 dark:bg-slate-900/50 rounded-xl">
+            <CardContent variant="secondary">
               <div className="flex flex-col gap-4 pt-6 pb-6">
                 <div className="flex items-center">
                   <PresetSelector
