@@ -2,6 +2,7 @@ import * as React from 'react'
 import { cva } from 'class-variance-authority'
 import { FiChevronsDown } from 'react-icons/fi'
 import { NavigationMenu as NavigationMenuPrimitive } from 'radix-ui'
+import { createLink, type LinkComponent } from '@tanstack/react-router'
 
 import { cn } from '@/lib/utils'
 
@@ -37,7 +38,7 @@ function NavigationMenuList({
     <NavigationMenuPrimitive.List
       data-slot="navigation-menu-list"
       className={cn(
-        'group flex flex-1 list-none items-center justify-center gap-1',
+        'group flex flex-1 list-none items-center justify-center gap-4',
         className,
       )}
       {...props}
@@ -121,20 +122,35 @@ function NavigationMenuViewport({
   )
 }
 
-function NavigationMenuLink({
-  className,
-  ...props
-}: React.ComponentProps<typeof NavigationMenuPrimitive.Link>) {
+const NavigationMenuLinkComponent = React.forwardRef<
+  HTMLAnchorElement,
+  React.AnchorHTMLAttributes<HTMLAnchorElement>
+>(({ className, ...props }, ref) => {
   return (
-    <NavigationMenuPrimitive.Link
-      data-slot="navigation-menu-link"
-      className={cn(
-        "data-[active=true]:focus:bg-accent data-[active=true]:hover:bg-accent data-[active=true]:bg-accent/50 data-[active=true]:text-accent-foreground hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus-visible:ring-ring/50 [&_svg:not([class*='text-'])]:text-muted-foreground flex flex-col gap-1 rounded-sm p-2 text-sm transition-all outline-none focus-visible:ring-[3px] focus-visible:outline-1 [&_svg:not([class*='size-'])]:size-4",
-        className,
-      )}
-      {...props}
-    />
+    <NavigationMenuPrimitive.Link asChild className="">
+      <a
+        ref={ref}
+        data-slot="navigation-menu-link"
+        className={cn(
+          'flex items-center gap-3 rounded-md px-3 py-2 text-lg font-bold',
+          'bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent dark:from-blue-400 dark:to-purple-400',
+          'transition-all duration-200 hover:ring-2 hover:ring-inset hover:ring-blue-500/50',
+          'data-[status=active]:bg-gradient-to-r data-[status=active]:from-blue-600 data-[status=active]:to-purple-600 data-[status=active]:bg-clip-border data-[status=active]:text-white dark:data-[status=active]:text-gray-900',
+          className,
+        )}
+        {...props}
+      />
+    </NavigationMenuPrimitive.Link>
   )
+})
+NavigationMenuLinkComponent.displayName = 'NavigationMenuLinkComponent'
+
+const CreatedNavigationMenuLink = createLink(NavigationMenuLinkComponent)
+
+const NavigationMenuLink: LinkComponent<typeof NavigationMenuLinkComponent> = (
+  props,
+) => {
+  return <CreatedNavigationMenuLink preload="intent" {...props} />
 }
 
 function NavigationMenuIndicator({
