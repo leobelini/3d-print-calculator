@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { convertTimeToHours } from '@/lib/transform-values'
-import type { FormType } from '../types'
+import type { FormProjectType } from '@/types/forms/project'
 
 export interface CalculationResults {
   depreciationPerHour: number
@@ -14,7 +14,7 @@ export interface CalculationResults {
   salePrice: number
 }
 
-export function useCalculations(values: FormType): CalculationResults {
+export function useCalculations(values: FormProjectType): CalculationResults {
   return useMemo(() => {
     const { energy, filament, print, printerDepreciation, profit } = values
     const printDurationInHours = convertTimeToHours(print.printDurationHours)

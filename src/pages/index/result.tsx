@@ -6,14 +6,14 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { Table, TableBody, TableCaption } from '@/components/ui/table'
-import type { FormType } from './types'
 import { Separator } from '@/components/ui/separator'
 import { useCalculations } from './hooks/use-calculations'
 import { TableRowWithInfo } from './components/table-row-with-info'
 import { SummaryItem } from './components/summary-item'
+import type { FormProjectType } from '@/types/forms/project'
 
 interface ResultProps {
-  values: FormType
+  values: FormProjectType
 }
 
 function Result({ values }: ResultProps) {
