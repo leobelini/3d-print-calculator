@@ -150,7 +150,7 @@ const CreatedNavigationMenuLink = createLink(NavigationMenuLinkComponent)
 const NavigationMenuLink: LinkComponent<typeof NavigationMenuLinkComponent> = (
   props,
 ) => {
-  return <CreatedNavigationMenuLink preload="intent" {...props} />
+  return <CreatedNavigationMenuLink preload="intent" className='text-sm' {...props} />
 }
 
 function NavigationMenuIndicator({
