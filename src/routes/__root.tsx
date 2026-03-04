@@ -37,7 +37,7 @@ export const Route = createRootRoute({
   },
 
   component: () => (
-    <main className="min-h-screen flex flex-col">
+    <main className="min-h-screen flex flex-col w-full overflow-x-hidden">
       <PageHeader />
       <MainMenu />
       <Outlet />
